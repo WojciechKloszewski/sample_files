@@ -1,0 +1,11 @@
+﻿Imie	Nazwisko	Wiek	Stanowisko	Zarobki	Czy posiada uprawnienia kat. D
+Alicja	Dolkiewicz	25	Referent	2050	tak
+Tomasz	Babinicz	28	Specjalista	3890	nie
+Maciej	Treska	40	Starszy specjalista	6000	brak danych
+Maciej	Drozd	45		3000	
+Wioleta	Drzazga	34	Specjalista	4250	
+Anna	Druch	dwadzieścia	Starszy specjalista	5000	tak
+Beata	Rodeń	28	Specjalista	4200	tak
+Krzysztof	Milka	12	Specjalista	4000	nieprawda
+Marcin	Rebik	34	Starszy specjalista	5500	nie
+Michał	Osłoń	56	Referent	2100	tak
