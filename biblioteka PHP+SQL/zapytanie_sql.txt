@@ -1,0 +1,4 @@
+SELECT ksiazki.id, ksiazki.tytul_ksiazki, ksiazki.liczba_ogolem, count(wypozyczenia.id_ksiazki) as wypozyczono, (ksiazki.liczba_ogolem-count(wypozyczenia.id_ksiazki)) as ile_dostepnych
+FROM ksiazki
+LEFT JOIN wypozyczenia ON ksiazki.id = wypozyczenia.id_ksiazki
+GROUP BY wypozyczenia.id_ksiazki;
