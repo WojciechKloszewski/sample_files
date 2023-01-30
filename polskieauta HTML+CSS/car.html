@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<title> Polskie samochody </title>
+<meta name="description" content="Stare i nowe polskie samochody, zarówno przedwojenne, okresu PRL-u jak i współczesne"/>
+<meta name="keywords" content="samochody, polskie samochodu, samochody PRL"/>
+<meta name="author" content="WK"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="shortcuticon" href="favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="car.css" type="text/css"/>
+<script type="text/javascript" src="car.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+	<script src="jquery.scrollTo.min.js"></script>
+
+
+<script>
+
+	jQuery(function($)
+	{
+	
+	$.scrollTo(0);
+
+	$('.scrollup').click(function() { $.scrollTo($('body'), 1000); });
+	}
+		);
+		
+	//pokaż podczas przewijania
+		$(window).scroll(function()
+		{
+		//jeżeli funkcja scroll ma wartość ponad 300 pikseli od góry wówszas pojawiaj się, w przeciwnym wypadku zniknij
+		
+			if($(this).scrollTop()>100) $('.scrollup').fadeIn();
+			else $('.scrollup').fadeOut();		
+		}
+		);
+
+</script>
+
+
+</head>
+
+<body>
+
+<a href="#" class="scrollup"></a>
+
+<header>
+
+<div id="version">
+<a href="http://wojklos.com.pl/polskieauta/polskie-samochody" >Wersja polska</a> / <a  href="http://wojklos.com.pl/polishcars/polish-cars" >English version</a>
+</div>
+
+
+<div id="carcar">
+
+
+<h1>Polskie samochody</h1>
+
+</div>
+
+<hr/>
+
+</header>
+
+<div id="maincontainer">
+
+<div class="flex">
+
+  <div id="nav">
+
+<nav>
+<ul>
+  <li><a id="present" href="polskie-samochody">Strona startowa</a></li>
+  <li><a href="przedwojenne">Przedwojenne</a></li>
+  <li><a href="powojenne">Powojenne</a></li>
+  <li><a href="epoka-gierka">Epoka gierka</a></li>
+  <li><a href="niedawna-produkcja">Niedawna produkcja</a></li>
+  <li><a href="prototypy">Prototypy</a></li>
+  <li><a href="ciekawostki">Ciekawostki</a></li>
+</ul>
+
+</nav>
+
+</div>
+  
+  
+<div id="main">
+<main>
+</article>
+<section>
+
+<div >
+<p id="p1">Polska motoryzacja wielu ludziom kojarzy się jedynie z zamierzchłą przeszłością. Wprawdzie ostatni Polonez zjechał z linii montażowej w 2002 roku, lecz wciąż produkowane są samochody na polskiej ziemi. Nie należy zapominać, iż nasi projektanci także w czasach powojennych stworzyli wiele przełomowych konstrukcji, które ze względu na uwarunkowania polityczno-gospodarcze nigdy nie mogły zostać wdrożone. W Czechosłowacji bez większych trudności można było wyprodukować luksusowe Tatry oraz wprowadzić na szosy Skodę Felicję typu kabriolet w 1959 roku. Polska Syrena Sport została zniszczona, zaś na realizację niektórych projektów zabrakło funduszy, co nie przeszkodziło zachodnim koncernom, po wygaśnięciu polskich patentów, stworzyć podobnie wyglądające pojazdy. Chociaż wiatr od wschodu nie sprzyjał rozwojowi polskiej motoryzacji o jej historii nie należy zapominać. Poniżej przedstawiono zdjęcia kilku ciekawych prototypów.</p>
+</div>
+
+</section>
+
+<section>
+
+<figure>
+<div id="afotocontainer">	
+<img id="asrc" src="img/sport.jpg"/>	
+</div>
+</figure>
+
+<div id="afotocontainer1">
+
+<div class="flex">
+
+<div id="syrenasport" class="afoto"  >Syrena Sport | </div>
+<div id="warszawa210" class="afoto" >Warszawa 210 | </div>
+<div id="syrena110" class="afoto" >Syrena 110 | </div>
+<div id="fiat125" class="afoto" >Fiat 125p coupe | </div>
+<div id="fsowars" class="afoto" >FSO Wars  </div>
+
+</div>
+
+</div>
+
+</section>
+
+<hr />
+
+<section>
+
+<div id="bibliografia">
+
+<h2> Bibliografia:</h2>
+
+<p>Zdjęcia oraz część informacji na stronie zostały zaczerpnięte z innych źródeł, które podano poniżej.</p>
+
+<ul>
+ <li>   www.wikipedia.org  </li>
+  <li>   http://zsah.blox.pl/2009/12/krotka-historia-polskich-samochodow.html </li>
+  <li>   http://www.oldtimer.400.pl/fso.html </li>
+ <li>    http://www.leopard-car.com/ </li>
+  <li>   http://www.auto-elektryczne.pl/sam--re-volt.html </li>
+  <li>   http://www.honker.com.pl/ </li>
+</ul>
+</div>
+
+<hr />
+</section>
+
+</article>
+</main>
+
+</div>
+
+
+</div>
+
+	
+</div>
+
+
+
+<footer>
+<p>Wszystkie prawa zastrzeżone. All rights reserved. &copy; 2020 Created by Wojciech Kłoszewski using HTML5,CSS,JS </p>
+</footer>
+
+
+
+
+<script>
+
+window.onload = car;
+
+<!-- I projekt -->
+document.getElementById("syrenasport").addEventListener("click", function() {foto(1)} );
+document.getElementById("warszawa210").addEventListener("click", function() {foto(2)} );
+document.getElementById("syrena110").addEventListener("click", function() {foto(3)} );
+document.getElementById("fiat125").addEventListener("click", function() {foto(4)} );
+document.getElementById("fsowars").addEventListener("click", function() {foto(5)} );
+
+
+
+</script>
+
+</body>
+
+</html>
