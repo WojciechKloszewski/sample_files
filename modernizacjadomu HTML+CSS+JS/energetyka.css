@@ -1,0 +1,446 @@
+﻿
+body{
+background-image: linear-gradient(to right, rgba(240,244,244), rgba(240,250,250));
+background-size: cover;
+color: #154A23;
+font-size: 16px;
+font-family: Times New Roman;
+font-weight: 500;
+margin: 0;
+line-height: 120%;
+}
+
+#header{
+	background-image: url('niebo.jpg');
+	background-size: cover;
+	padding-top: 20px;
+	text-align: center;
+	padding-bottom: 20px;
+
+}
+
+#naglowek{
+width: 62%;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 20px;
+
+}
+
+#zdjecieheader img{
+	min-width: 80px;
+	width: 80%;
+	height: auto;
+	padding: 20px;
+
+}
+
+#zdjecieheader{
+	padding-top: 10px;
+	width: 20%;
+	min-width: 200px;
+	max-height: 100px;
+
+}
+
+#fotka{
+	padding-top: 10px;
+	max-height: 150px;
+	width: auto;
+
+}
+
+
+#zdjeciedomek img{
+	min-width: 80px;
+	width: 100%;
+	height: auto;
+	max-width: 150px;
+	max-height: 150px;
+	margin: 10px;
+
+
+}
+
+#danewstepneheader{
+	word-wrap: break-word;
+	width: 70%;
+	text-align: justify;
+
+}
+
+#nav{
+	background-color:rgb(79, 143, 240);
+	}
+
+
+#nav a{
+
+	padding: 15px;
+	color: #154A23;
+	padding-left: 80px;
+	padding-right: 80px;
+	text-decoration: none;
+	font-weight: 700;
+	background-color: rgba(0, 160, 215, 1);
+	transition-duration: 0.4s;
+}
+
+@media screen and (max-width: 800px) {
+	
+#nav a{
+		
+	width: 220px;
+    text-align: center;
+	}
+}
+
+#nav a:hover{
+	background-color: #6B8CAD;
+	color: #fff;
+}
+
+
+
+#danedoobliczen{
+	margin: 5px;
+	padding: 20px;
+	background-color: rgba(155,190,225,0.2);
+	border-radius: 5px;
+	width: 75%;
+	text-align: center;
+}
+
+#danedoobliczen1{
+	margin: 5px;
+	padding: 20px;
+	background-color: rgba(155,190,225,0.2);
+	border-radius: 5px;
+	width: 60%;
+	text-align: center;
+}
+
+#danedoobliczen2{
+	margin: 5px;
+	padding: 20px;
+	background-color: rgba(155,190,225,0.2);
+	border-radius: 5px;
+	width: 25%;
+	text-align: center;
+}
+
+
+
+@media screen and (max-width: 800px) {
+	
+#danedoobliczen1{
+	width: 80%;
+}
+
+#danedoobliczen2{
+	width: 80%;
+}
+
+}
+
+
+
+h1{
+	
+	text-shadow: 0 0 6px #fff;
+	font-size: 2vw;
+	text-align: left;
+	vertical-align: bottom;
+	margin-top: 20px;
+	margin-left: 20px;
+	text-transform: uppercase;
+	color: #277A17;
+
+}
+
+h2{
+	text-align: left;
+	color: #1C344D;
+	font-size: 1.1vw;
+}
+
+h3{
+	
+	text-shadow: 0 0 6px #fff;
+	font-size: 1.7vw;
+	text-align: center;
+	margin-top: 20px;
+	margin-left: 20px;
+	text-transform: uppercase;
+	color: #277A17;
+}
+
+h4{
+	
+	text-shadow: 0 0 6px #fff;
+	font-size: 1.7vw;
+	text-align: center;
+	margin-top: 20px;
+	margin-left: 20px;
+	text-transform: uppercase;
+	color: #1C344D;
+}
+
+
+p{
+	font-weight: 700;
+	font-size: 15px;
+
+}
+
+p1{
+padding: 3px 10px;
+font-weight: 800;
+color: #1C471A;	
+}
+
+
+p2{
+padding-left: 10px;
+font-weight: 800;
+color: #1C471A;	
+font-size: 15px;
+}
+
+
+p4{
+padding-left: 10px;
+font-weight: 1000;
+color: #1C344D;
+font-size: 17px;	
+}
+
+p5{
+	font-weight: 500;
+	font-size: 20px;
+	text-align: justify;
+	line-height: 120%;
+}
+
+
+ input[type=number]{
+  border-radius: 8px;
+  border: none;
+  padding: 8px 8px;
+  margin: 10px;
+  color: #fff;
+  background-color: #4CAF50;
+  width: 60px;
+}
+
+ input[type=number]:hover{
+  box-shadow: 0 0 3px #385230;
+  cursor: pointer;
+}
+
+input[type=number]:focus{
+  box-shadow: 0 0 3px #385230;
+}
+
+
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.flex-container1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flex-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+
+.zewmodernizowanemale{
+	margin: 10px;
+	min-height: 150px;
+	text-align: center;
+}
+
+.obramowanianiebieskie{
+	margin: 10px;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: rgba(109,162,214,0.2);
+  width: 300px;
+  
+}
+
+.zewmodernizowane{
+	min-width: 380px;
+	width: 40%;
+}
+
+
+.p5{
+	padding: 10px 50px;
+	background-color: rgba(123,150,176,0.75);
+	border-radius: 15px;
+	width: 80px;
+	margin: auto;
+}
+
+.p5:hover{
+	background-color: rgba(123,150,176,0.55);
+}
+
+
+.p6{
+	padding: 10px 50px;
+	background-color: #4CAF50;
+	color: white; 
+	border-radius: 15px;
+	width: 80px;
+	margin: auto;
+}
+
+.p6:hover{
+opacity:0.93;
+}
+
+
+@media screen and (max-width: 800px) {
+	
+h1{
+		
+	font-size: 80%;
+	text-align: center;
+	}
+
+ h2{
+
+	font-size: 3vw;
+}	
+
+	h3{
+	font-size: 3vw;	
+	}
+	
+	h4{
+	font-size: 3vw;	
+	}
+	p5{
+
+	font-size: 15px;
+
+}
+
+	
+}
+
+
+
+#footer{
+	background-color: rgba(200, 227, 200, 0.8);
+	font-size: 15px;
+	text-align: center;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+/* o autorze */
+
+
+#dane_osobowe{
+	background-color:rgb(79, 143, 240, 0.75);
+	color: #1C344D;
+	padding: 15px;
+}
+
+p6{
+font-weight: 1000;
+color: white;
+font-size: 18px;
+line-height: 160%;
+}
+
+
+
+.scrollup
+{
+	width:64px;
+	height:64px;
+	text-decoration:none;
+	background: url("img/up1.png") no-repeat 0px 0px;
+	position: fixed;
+	right: 25px;
+	bottom: 25px;
+	display: none;
+}
+
+.scrollup:hover{
+	cursor: pointer;
+	}
+
+.button{
+	background-color: #4CAF50;
+	color: white; 
+
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 5px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+	width: 100px;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #2D6932;
+}
+
+
+.button1{
+	background-color: #2D6932;
+	color: white; 
+
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 5px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+	width: 100px;
+  font-weight: bold;
+}
+
+
+.classSTART{
+	background-color: #2D6932;
+	color: white; 
+
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 5px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+	width: 100px;
+  font-weight: bold;
+}
+
+.checkbox_pole{
+	background-color:#4CAF50;
+	margin: 15px;
+}
+
+
+

@@ -1,0 +1,512 @@
+﻿<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<title> Termomodernizacja budynku </title>
+<meta name="description" content="Na stronie internetowej znajduje się kalkulator dotyczący zmniejszenia zużycia energii w wyniku termomodernizacji budynku. Kalkulator stworzony został dla celów edukacyjnych"/>
+<meta name="keywords" content="termomodernizacja, audyt budynku, kalkulator energetyczny"/>
+<meta name="author" content="WK"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+<script type="text/javascript" src="modernizacjaDomu.js"></script>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+	<script src="jquery.scrollTo.min.js"></script>
+
+<link rel="stylesheet" href="energetyka.css" type="text/css"/>
+
+
+
+
+
+<script>
+
+	jQuery(function($)
+	{
+	
+	$.scrollTo(0);
+
+	$('.scrollup').click(function() { $.scrollTo($('body'), 1000); });
+	}
+		);
+		
+	//pokaż podczas przewijania
+		$(window).scroll(function()
+		{
+		//jeżeli funkcja scroll ma wartość ponad 300 pikseli od góry wówszas pojawiaj się, w przeciwnym wypadku zniknij
+		
+			if($(this).scrollTop()>100) $('.scrollup').fadeIn();
+			else $('.scrollup').fadeOut();		
+		}
+		);
+
+</script>
+
+
+</head>
+
+<body onload="wczytaj_dane_wstepne()">
+
+<a href="#" class="scrollup"></a>
+
+<header id="header">
+
+
+<div id="naglowek">
+
+
+<div class="flex-container1" >
+	
+<div id="zdjecieheader">
+<img src="domenerg.png"/>
+</div>
+
+<div id="danewstepneheader">	
+<br/>
+<h1> EKO - MODERNIZACJA</h1>
+
+</div>
+
+
+
+<h1> Dom jednorodzinny przyjazny środowisku</h1> 
+</div>
+
+</div>
+
+</header>
+
+<nav id="nav">
+<div class="flex-container1">
+
+<a href="kalkulator-termomodernizacja" id="a">Kalkulator</a>
+<a href="https://wojklos.com.pl/oze/kalkulator-oze" >Dobór OZE</a>
+<a href="kalkulator-metodologia">Metodologia</a>
+<a href="kalkulator-autor" >O autorze</a>
+
+</div>
+</nav>
+
+
+<main>
+
+<div class="flex-container1">
+
+<section id="danedoobliczen">
+
+<h3> Kalkulator termomodernizacji domu jednorodzinnego </h3> 
+
+
+
+<div class="flex-container1">
+<div id="zdjeciedomek">
+	<img src="domek.jpg" />
+</div>
+
+<div id="danewstepneheader">	
+<p5>Kalkulator oblicza roczne szacunkowe zmniejszenie zużycia energii, kosztów ogrzewania oraz redukcji emisji CO<sub>2</sub> w wyniku przeprowadzenia działań termomodernizacyjnych. Należy pamiętać, że obliczenia mają jedynie charakter szacunkowy, zaś kalkulator ma wyłącznie charakter edukacyjny i nie może być wykorzystywany do celów komercyjnych zarówno w cześci jak i w całości &copy;  </p5>
+</div>
+</div>
+
+</section>
+
+<section id="danedoobliczen1">
+
+
+
+<h3>Krok I</h3>
+
+
+
+<div  id="wiek_budynku"><h2>Podaj orientacyjny wiek budynku lub okres w którym nastąpiła ostatnia głęboka modernizacja:</h2></div>
+
+<div class="flex-container">
+	<div class="button" id="wiek_budynku_1945" onclick="wiek_budynku_1945() ; obliczenia()" ontouchend="wiek_budynku_1945() ; obliczenia()">Dom niemodernizowany od co najmniej 1945</div>
+	<div class="button" id="wiek_budynku_19461966" onclick="wiek_budynku_19461966() ; obliczenia()" ontouchend="wiek_budynku_19461966() ; obliczenia()">Dom niemodernizowany od co najmniej 1946-1966</div>
+	<div class="button" id="wiek_budynku_19671985" onclick="wiek_budynku_19671985() ; obliczenia()" ontouchend="wiek_budynku_19671985() ; obliczenia()">Dom niemodernizowany od co najmniej 1967-1985</div>
+	<div class="button" id="wiek_budynku_19862000" onclick="wiek_budynku_19862000() ; obliczenia()" ontouchend="wiek_budynku_19862000() ; obliczenia()">Dom niemodernizowany od co najmniej 1986-2000</div>
+	<div class="classSTART" id="wiek_budynku_20012008" onclick="wiek_budynku_20012008() ; obliczenia()" ontouchend="wiek_budynku_20012008() ; obliczenia()">Dom niemodernizowany od co najmniej 2001-2008</div>
+	<div class="button" id="wiek_budynku_po2009" onclick="wiek_budynku_po2009(); obliczenia()" ontouchend="wiek_budynku_po2009() ; obliczenia()">Dom niemodernizowany od ok 2009-2014</div>
+</div>
+	
+
+
+<div class="flex-container">
+
+<div id="powierzchnia_budynku"><h2>Powierzchnia domu ogrzewana(w tym powierzchnia strychu jeśli jest ogrzewany)</h2></div>
+
+<div id="powierzchnia_budynku_liczba_div" >
+		<label> <input type="number" id="powierzchnia_budynku_liczba" size="4" value="150" oninput="powierzchnia_budynku_liczba() ; obliczenia()"> m<sup>2</sup></label>
+</div>
+</div>
+
+
+
+
+<div class="flex-container">
+<div id="strop_czy_dach"><h2>Czy strych ogrzewany? Jeśli tak, proszę zaznaczyć pole</h2></div> &nbsp; 
+
+		<div id="check_strop_czy_dach_div" class="checkbox_pole"> 
+		<label  for="check_strop_czy_dach"></label>
+		<input  type="checkbox" id="check_strop_czy_dach"  value="ogrzewanystrych" onclick="check_strop_czy_dach(); obliczenia()" ontouchend="check_strop_czy_dach(); obliczenia()">
+		</div>
+</div>
+
+
+
+<div class="flex-container">
+	<div id="liczba_uzytkownikow"><h2>Liczba osób użytkujących budynek:</h2></div>
+
+	<div id="liczba_uzytkownikow_div">
+			<label> <input type="number" id="liczba_uzytkownikow_liczba" size="4" value="4" oninput="liczba_uzytkownikow_liczba(); obliczenia()"> </label>
+	</div>
+</div>
+
+
+
+
+	<div id="dobowe_zuzycie_wody"><h2>Dobowe zużycie ciepłej wody na osobę:</h2> </div>
+<div class="flex-container">
+		<div class="classSTART" id="dobowe_zuzycie_wody_niskie" onclick="dobowe_zuzycie_wody_niskie(); obliczenia()" ontouchend="dobowe_zuzycie_wody_niskie(); obliczenia()">Niskie</div>
+		<div class="button" id="dobowe_zuzycie_wody_srednie" onclick="dobowe_zuzycie_wody_srednie(); obliczenia()" ontouchend="dobowe_zuzycie_wody_srednie(); obliczenia()">Średnie</div>
+		<div class="button" id="dobowe_zuzycie_wody_wysokie" onclick="dobowe_zuzycie_wody_wysokie(); obliczenia()" ontouchend="dobowe_zuzycie_wody_wysokie(); obliczenia()">Wysokie</div>
+
+	<div id="dobowe_zuzycie_wody_number_div">
+			<label> <input type="number" id="dobowe_zuzycie_wody_number" size="4" oninput="dobowe_zuzycie_wody_number(); obliczenia()"value="35"> dm<sup>3</sup></label>
+	</div>	
+</div>
+	
+
+
+
+
+<div id="rodzaj_ogrzewania_CO"><h2>Rodzaj ogrzewania w budynku: </h2></div>
+
+<div class="flex-container">
+
+	<div class="button" id="rodzaj_ogrzewania_CO_stary_piec_kaflowy_025" onclick="rodzaj_ogrzewania_CO_stary_piec_kaflowy_025(); paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CO_stary_piec_kaflowy_025();paliwo(); obliczenia()">Stary piec kaflowy η=0,25</div>
+	<div class="button" id="rodzaj_ogrzewania_CO_stary_kominek_040" onclick="rodzaj_ogrzewania_CO_stary_kominek_040();paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CO_stary_kominek_040();paliwo(); obliczenia()">Stary kominek η=0,40</div>
+	<div class="button" id="rodzaj_ogrzewania_CO_stary_piec_weglowy_060" onclick="rodzaj_ogrzewania_CO_stary_piec_weglowy_060();paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CO_stary_piec_weglowy_060();paliwo() ;paliwo(); obliczenia()">Stary piec węglowy sprzed 1980 η=0,60</div>
+	<div class="classSTART" id="rodzaj_ogrzewania_CO_stary_piec_weglowy_065" onclick="rodzaj_ogrzewania_CO_stary_piec_weglowy_065() ; paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CO_stary_piec_weglowy_065() ;paliwo(); obliczenia()">Stary piec węglowy produkcji 1980-2000 η=0,65</div>
+	<div class="button" id="rodzaj_ogrzewania_CO_nowy_piec_weglowy_082" onclick="rodzaj_ogrzewania_CO_nowy_piec_weglowy_082() ; paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CO_nowy_piec_weglowy_082() ;paliwo(); obliczenia()">Nowy piec węglowy produkcji po 2000 η=0,82</div>
+	<div class="button" id="rodzaj_ogrzewania_CO_stary_kociol_biomasa_070" onclick="rodzaj_ogrzewania_CO_stary_kociol_biomasa_070();paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CO_stary_kociol_biomasa_070() ;paliwo(); obliczenia()">Stary kocioł na biomasę η=0,70</div>
+	<div class="button" id="rodzaj_ogrzewania_CO_nowy_kociol_biomasa_85" onclick="rodzaj_ogrzewania_CO_nowy_kociol_biomasa_85() ;paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CO_nowy_kociol_biomasa_85() ;paliwo(); obliczenia()">Nowoczesny kocioł na biomasę η=0,85</div>
+	<div class="button" id="rodzaj_ogrzewania_CO_kominek_plaszcz_wodny_070" onclick="rodzaj_ogrzewania_CO_kominek_plaszcz_wodny_070() ;paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CO_kominek_plaszcz_wodny_070() ;paliwo(); obliczenia()">Kominek z płaszczem wodnym η=0,70</div>
+	<div class="button" id="rodzaj_ogrzewania_CO_elektryczne_99" onclick="rodzaj_ogrzewania_CO_elektryczne_99() ;paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CO_elektryczne_99() ;paliwo(); obliczenia()">Miejscowe ogrzewanie elektryczne η=0,99</div>
+	<div class="button" id="rodzaj_ogrzewania_CO_piec_olejowy_084" onclick="rodzaj_ogrzewania_CO_piec_olejowy_084() ;paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CO_piec_olejowy_084() ;paliwo(); obliczenia()">Piec olejowy η=0,84</div>
+	<div class="button" id="rodzaj_ogrzewania_CO_piec_gazkowy_087" onclick="rodzaj_ogrzewania_CO_piec_gazkowy_087() ;paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CO_piec_gazkowy_087() ;paliwo(); obliczenia()">Stary piec gazowy η=0,87</div>
+	<div class="button" id="rodzaj_ogrzewania_CO_piec_gazkowy_094" onclick="rodzaj_ogrzewania_CO_piec_gazkowy_094() ;paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CO_piec_gazkowy_094() ;paliwo(); obliczenia()">Piec gazowy kondensacyjny η=0,94</div>
+	<div class="button" id="rodzaj_ogrzewania_CO_wezel_cieplowniczy_098" onclick="rodzaj_ogrzewania_CO_wezel_cieplowniczy_098() ;paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CO_wezel_cieplowniczy_098() ;paliwo(); obliczenia()">Węzeł ciepłowniczy (sieć) η=0,98</div>
+	<div class="button" id="rodzaj_ogrzewania_CO_powietrzna_pompa_ciepla_300" onclick="rodzaj_ogrzewania_CO_powietrzna_pompa_ciepla_300() ;paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CO_powietrzna_pompa_ciepla_300() ;paliwo(); obliczenia()">Powietrzna pompa ciepła napęd elektryczny η=3,00</div>
+	<div class="button" id="rodzaj_ogrzewania_CO_gazowa_pompa_ciepla_160" onclick="rodzaj_ogrzewania_CO_gazowa_pompa_ciepla_160() ;paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CO_gazowa_pompa_ciepla_160() ;paliwo(); obliczenia()">Gazowa pompa ciepła typu glikol/woda η=1,60</div>
+	<div class="button" id="rodzaj_ogrzewania_CO_gruntowa_pompa_ciepla_400" onclick="rodzaj_ogrzewania_CO_gruntowa_pompa_ciepla_400() ;paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CO_gruntowa_pompa_ciepla_400() ;paliwo(); obliczenia()">Gruntowa pompa ciepła napęd elektryczny η=4,00</div>
+</div>
+	
+
+
+<div id="rodzaj_instalacji_CO"><h2>Rodzaj instalacji ogrzewania w budynku:</h2> </div>
+
+<div class="flex-container">
+	<div class="button" id="rodzaj_instalacji_CO_miejscowe_elektryczne_091" onclick="rodzaj_instalacji_CO_miejscowe_elektryczne_091(); obliczenia()" ontouchend="rodzaj_instalacji_CO_miejscowe_elektryczne_091(); obliczenia()">Ogrzewanie miejscowe elektryczne η=0,91</div>
+	<div class="button" id="rodzaj_instalacji_CO_kaflowe_kominek_070" onclick="rodzaj_instalacji_CO_kaflowe_kominek_070(); obliczenia()" ontouchend="rodzaj_instalacji_CO_kaflowe_kominek_070(); obliczenia()">Ogrzewanie miejscowe z pieca kaflowego lub kominka η=0,70</div>
+	<div class="classSTART" id="rodzaj_instalacji_CO_grzejniki_centralna_077" onclick="rodzaj_instalacji_CO_grzejniki_centralna_077(); obliczenia()" ontouchend="rodzaj_instalacji_CO_grzejniki_centralna_077(); obliczenia()">Ogrzewanie wodne, grzejniki, regulacja centralna η=0,77</div>
+	<div class="button" id="rodzaj_instalacji_CO_grzejniki_miejscowe_093" onclick="rodzaj_instalacji_CO_grzejniki_miejscowe_093(); obliczenia()" ontouchend="rodzaj_instalacji_CO_grzejniki_miejscowe_093(); obliczenia()">Ogrzewanie wodne, grzejniki, regulacja miejscowa (zawory termostatyczne) η=0,93</div>
+	<div class="button" id="rodzaj_instalacji_CO_podlogowe_centralna_076" onclick="rodzaj_instalacji_CO_podlogowe_centralna_076(); obliczenia()" ontouchend="rodzaj_instalacji_CO_podlogowe_centralna_076(); obliczenia()">Ogrzewanie wodne, podłogowe, regulacja centralna η=0,762</div>
+	<div class="button" id="rodzaj_instalacji_CO_podlogowe_miejscowe_089" onclick="rodzaj_instalacji_CO_podlogowe_miejscowe_089(); obliczenia()" ontouchend="rodzaj_instalacji_CO_podlogowe_miejscowe_089(); obliczenia()">Ogrzewanie wodne, podłogowe, regulacja miejscowa (miejscowy panel sterowania) η=0,89</div>
+</div>
+
+
+
+
+<div id="zbiornik_akumulacyjny_ciepla_div_zew">
+
+<div class="flex-container">
+<div id="zbiornik_akumulacyjny_ciepla_div" ><h2>Czy w budynku znajduje się zbiornik akumulacyjny ciepła? Jeśli tak, proszę zaznaczyć pole:</h2></div>
+
+
+		<div id="check_zbiornik_akumulacyjny_ciepla_div" class="checkbox_pole"> 
+		<label  for="check_zbiornik_akumulacyjny_ciepla"></label>
+		<input  type="checkbox" id="check_zbiornik_akumulacyjny_ciepla"  value="zbiornik" onclick="check_zbiornik_akumulacyjny_ciepla(); obliczenia()" ontouchend="check_zbiornik_akumulacyjny_ciepla(); obliczenia()">
+		</div>
+</div>
+</div>		
+
+
+
+<div id="rodzaj_ogrzewania_CWU"><h2>Źródło przygotowania ciepłej wody użytkowej: </h2></div>
+
+<div class="flex-container">
+	<div class="button" id="rodzaj_ogrzewania_CWU_piec_gazowy_bojler_040" onclick="rodzaj_ogrzewania_CWU_piec_gazowy_bojler_040() ; paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CWU_piec_gazowy_bojler_040() ; paliwo(); obliczenia()">Stary piec gazowy sprzed 1980 (bojler) η=0,40</div>
+	<div class="classSTART" id="rodzaj_ogrzewania_CWU_piec_gazowy_2000_065" onclick="rodzaj_ogrzewania_CWU_piec_gazowy_2000_065() ; paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CWU_piec_gazowy_2000_065() ; paliwo(); obliczenia()">Stary piec gazowy sprzed 2000 η=0,65</div>
+	<div class="button" id="rodzaj_ogrzewania_CWU_piec_gazowy_niekondensacyjny_083" onclick="rodzaj_ogrzewania_CWU_piec_gazowy_niekondensacyjny_083() ; paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CWU_piec_gazowy_niekondensacyjny_083() ; paliwo(); obliczenia()">Piec gazowy niekondensacyjny η=0,83</div>
+	<div class="button" id="rodzaj_ogrzewania_CWU_piec_gazowy_kondensacyjny_085" onclick="rodzaj_ogrzewania_CWU_piec_gazowy_kondensacyjny_085() ; paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CWU_piec_gazowy_kondensacyjny_085() ; paliwo(); obliczenia()">Piec gazowy kondensacyjny η=0,85</div>
+	<div class="button" id="rodzaj_ogrzewania_CWU_podgrzewacz_elektryczny_096" onclick="rodzaj_ogrzewania_CWU_podgrzewacz_elektryczny_096() ; paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CWU_podgrzewacz_elektryczny_096() ; paliwo(); obliczenia()">Miejscowe podgrzewacze elektryczne η=0,96</div>
+	<div class="button" id="rodzaj_ogrzewania_CWU_powietrzna_pompa_ciepla_260" onclick="rodzaj_ogrzewania_CWU_powietrzna_pompa_ciepla_260() ; paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CWU_powietrzna_pompa_ciepla_260() ; paliwo(); obliczenia()">Powietrzna pompa ciepła napęd elektryczny η=2,60</div>
+	<div class="button" id="rodzaj_ogrzewania_CWU_wezel_cieplowniczy_098" onclick="rodzaj_ogrzewania_CWU_wezel_cieplowniczy_098() ; paliwo(); obliczenia()" ontouchend="rodzaj_ogrzewania_CWU_wezel_cieplowniczy_098() ; paliwo(); obliczenia()">Węzeł ciepłowniczy (sieć) η=0,98</div>
+</div>		
+
+
+
+<div id="rodzaj_wentylacji"><h2>Rodzaj wentylacji:</h2> </div>
+
+<div class="flex-container">
+	<div class="classSTART" id="rodzaj_wentylacji_grawitacyjna" onclick="rodzaj_wentylacji_grawitacyjna(); obliczenia()" ontouchend="rodzaj_wentylacji_grawitacyjna(); obliczenia()">Wentylacja grawitacyjna</div>
+	<div class="button" id="rodzaj_wentylacji_mechaniczna60" onclick="rodzaj_wentylacji_mechaniczna60(); obliczenia()" ontouchend="rodzaj_wentylacji_mechaniczna60(); obliczenia()">Mechaniczna z rekuperacją 60%</div>
+	<div class="button" id="rodzaj_wentylacji_mechaniczna85" onclick="rodzaj_wentylacji_mechaniczna85(); obliczenia()" ontouchend="rodzaj_wentylacji_mechaniczna85(); obliczenia()">Mechaniczna z rekuperacją 85%</div>
+</div>
+		
+
+
+</section>
+
+
+<section id="danedoobliczen2">
+
+<h3>Krok II</h3>
+
+<div id="rodzaj_modernizacji"><h2>Określ jakie prace będą realizowane w ramach modernizacji budynku: </h2></div>
+
+<h2>Dobór automatyczny: </h2>
+<div class="flex-container">
+<div class="button" id="brakmodernizacji" onclick="brakmodernizacji(); obliczenia()" ontouchend="brakmodernizacji(); obliczenia()"> </br> Brak modernizacji </br> </div>
+<div class="button" id="modernizacjaautomat" onclick="modernizacjaautomat(); obliczenia()" ontouchend="modernizacjaautomat(); obliczenia()">  Modernizacja standardowa  </div>
+<div class="button" id="supereko" onclick="supereko(); obliczenia()" ontouchend="supereko(); obliczenia()">Modernizacja całkowita "SUPER EKO"</div>
+</div>
+<h2>Modyfikacja ręczna: </h2>
+
+<div class="flex-container">
+	<div class="button" id="modernizacja_wymiana_okien_nie" onclick="modernizacja_wymiana_okien_tak(); obliczenia()" ontouchend="modernizacja_wymiana_okien_tak(); obliczenia()">Wybierz wymianę okien</div>
+	<div class="button1" id="modernizacja_wymiana_okien_tak" onclick="modernizacja_wymiana_okien_nie(); obliczenia()" ontouchend="modernizacja_wymiana_okien_nie(); obliczenia()">Cofnij wymianę okien</div>
+
+	<div class="button" id="modernizacja_ocieplenie_scian_nie" onclick="modernizacja_ocieplenie_scian_tak(); obliczenia()" ontouchend="modernizacja_ocieplenie_scian_tak(); obliczenia()">Wybierz ocieplenie ścian</div>
+	<div class="button1" id="modernizacja_ocieplenie_scian_tak" onclick="modernizacja_ocieplenie_scian_nie(); obliczenia()" ontouchend="modernizacja_ocieplenie_scian_nie(); obliczenia()">Cofnij ocieplenie ścian</div>
+
+	<div class="button" id="modernizacja_ocieplenie_dachu_nie" onclick="modernizacja_ocieplenie_dachu_tak(); obliczenia()" ontouchend="modernizacja_ocieplenie_dachu_tak(); obliczenia()">Wybierz ocieplenie dachu</div>
+	<div class="button1" id="modernizacja_ocieplenie_dachu_tak" onclick="modernizacja_ocieplenie_dachu_nie(); obliczenia()" ontouchend="modernizacja_ocieplenie_dachu_nie(); obliczenia()">Cofnij ocieplenie dachu</div>
+
+	<div class="button" id="modernizacja_ocieplenie_poddasze_nie" onclick="modernizacja_ocieplenie_poddasze_tak(); obliczenia()" ontouchend="modernizacja_ocieplenie_poddasze_tak(); obliczenia()">Wybierz ocieplenie stropu nieogrzewanego poddasza</div>
+	<div class="button1" id="modernizacja_ocieplenie_poddasze_tak" onclick="modernizacja_ocieplenie_poddasze_nie(); obliczenia()" ontouchend="modernizacja_ocieplenie_poddasze_nie(); obliczenia()">Cofnij ocieplenie stropu nieogrzewanego poddasza</div>	
+
+
+	<div class="button" id="modernizacja_ocieplenie_podlogi_nie" onclick="modernizacja_ocieplenie_podlogi_tak(); obliczenia()" ontouchend="modernizacja_ocieplenie_podlogi_tak(); obliczenia()">Wybierz ocieplenie podłogi</div>
+	<div class="button1" id="modernizacja_ocieplenie_podlogi_tak" onclick="modernizacja_ocieplenie_podlogi_nie(); obliczenia()" ontouchend="modernizacja_ocieplenie_podlogi_nie(); obliczenia()">Cofnij ocieplenie podłogi</div>
+
+	<div class="button" id="modernizacja_wymiana_drzwi_nie" onclick="modernizacja_wymiana_drzwi_tak(); obliczenia()" ontouchend="modernizacja_wymiana_drzwi_tak(); obliczenia()">Wybierz wymianę drzwi</div>
+	<div class="button1" id="modernizacja_wymiana_drzwi_tak" onclick="modernizacja_wymiana_drzwi_nie(); obliczenia()" ontouchend="modernizacja_wymiana_drzwi_nie(); obliczenia()">Cofnij wymianę drzwi</div>
+
+
+</div>
+
+<div class="flex-container2">
+
+<div class="flex-container">
+<div class="flex-container1">
+	<div class="button" id="modernizacja_wymiana_rodzaju_wentylacji_nie" onclick="modernizacja_wymiana_rodzaju_wentylacji_tak(); obliczenia()" ontouchend="modernizacja_wymiana_rodzaju_wentylacji_tak(); obliczenia()">Wybierz modernizację rodzaju wentylacji</div>
+	<div class="button1" id="modernizacja_wymiana_rodzaju_wentylacji_tak" onclick="modernizacja_wymiana_rodzaju_wentylacji_nie(); obliczenia()" ontouchend="modernizacja_wymiana_rodzaju_wentylacji_nie(); obliczenia()">Cofnij modernizację rodzaju wentylacji</div>
+</div>
+	<div  id="modernizacja_wymiana_rodzaju_wentylacji_rodzaj">
+<div class="flex-container1">	
+		<div class="classSTART" id="modernizacja_wymiana_rodzaju_wentylacji_mechaniczna_60" onclick="modernizacja_wymiana_rodzaju_wentylacji_mechaniczna_60(); obliczenia()" ontouchend="modernizacja_wymiana_rodzaju_wentylacji_mechaniczna_60(); obliczenia()">Mechaniczna z rekuperacją o spawności odzysku 60%</div>
+		<div class="button" id="modernizacja_wymiana_rodzaju_wentylacji_mechaniczna_85" onclick="modernizacja_wymiana_rodzaju_wentylacji_mechaniczna_85(); obliczenia()" ontouchend="modernizacja_wymiana_rodzaju_wentylacji_mechaniczna_85(); obliczenia()">Mechaniczna z rekuperacją o spawności odzysku 85%</div>
+	</div>
+</div>
+</div>
+	
+
+
+
+<div class="flex-container">
+<div class="flex-container1">
+
+	<div class="button" id="modernizacja_wymiana_rodzaju_zrodla_ogrzewania_nie" onclick="modernizacja_wymiana_rodzaju_zrodla_ogrzewania_tak() ; paliwo(); obliczenia()" ontouchend="modernizacja_wymiana_rodzaju_rodzaju_zrodla_ogrzewania_tak() ; paliwo(); obliczenia()">Wybierz wymianę źródła ciepła do ogrzewania domu</div>
+	<div class="button1" id="modernizacja_wymiana_rodzaju_zrodla_ogrzewania_tak" onclick="modernizacja_wymiana_rodzaju_zrodla_ogrzewania_nie() ; paliwo(); obliczenia()" ontouchend="modernizacja_wymiana_rodzaju_zrodla_ogrzewania_nie() ; paliwo(); obliczenia()">Cofnij wymianę źródła ciepła do ogrzewania domu</div>
+</div>
+	<div  id="modernizacja_wymiana_rodzaju_zrodla_ogrzewania_rodzaj">
+<div class="flex-container1">	
+		<div class="classSTART" id="modernizacja_rodzaj_ogrzewania_CO_nowy_piec_weglowy_082" onclick="modernizacja_rodzaj_ogrzewania_CO_nowy_piec_weglowy_082(); paliwo(); obliczenia()" ontouchend="modernizacja_rodzaj_ogrzewania_CO_nowy_piec_weglowy_082() ; paliwo(); obliczenia()">Nowy piec węglowy produkcji po 2000 η=0,82</div>
+		<div class="button" id="modernizacja_rodzaj_ogrzewania_CO_nowy_kociol_biomasa_85" onclick="modernizacja_rodzaj_ogrzewania_CO_nowy_kociol_biomasa_85() ; paliwo(); obliczenia()" ontouchend="modernizacja_rodzaj_ogrzewania_CO_nowy_kociol_biomasa_85() ; paliwo(); obliczenia()">Nowoczesny kocioł na biomasę η=0,85</div>
+		<div class="button" id="modernizacja_rodzaj_ogrzewania_CO_kominek_plaszcz_wodny_070" onclick="modernizacja_rodzaj_ogrzewania_CO_kominek_plaszcz_wodny_070() ; paliwo(); obliczenia()" ontouchend="modernizacja_rodzaj_ogrzewania_CO_kominek_plaszcz_wodny_070() ; paliwo(); obliczenia()">Kominek z płaszczem wodnym η=0,70</div>
+		<div class="button" id="modernizacja_rodzaj_ogrzewania_CO_elektryczne_99" onclick="modernizacja_rodzaj_ogrzewania_CO_elektryczne_99() ; paliwo(); obliczenia()" ontouchend="modernizacja_rodzaj_ogrzewania_CO_elektryczne_99() ; paliwo(); obliczenia()">Miejscowe ogrzewanie elektryczne η=0,99</div>
+		<div class="button" id="modernizacja_rodzaj_ogrzewania_CO_piec_olejowy_084" onclick="modernizacja_rodzaj_ogrzewania_CO_piec_olejowy_084() ; paliwo(); obliczenia()" ontouchend="modernizacja_rodzaj_ogrzewania_CO_piec_olejowy_084() ; paliwo(); obliczenia()">Piec olejowy η=0,84</div>
+		<div class="button" id="modernizacja_rodzaj_ogrzewania_CO_piec_gazkowy_094" onclick="modernizacja_rodzaj_ogrzewania_CO_piec_gazkowy_094() ; paliwo(); obliczenia()" ontouchend="modernizacja_rodzaj_ogrzewania_CO_piec_gazkowy_094() ; paliwo(); obliczenia()">Piec gazowy kondensacyjny η=0,94</div>
+		<div class="button" id="modernizacja_rodzaj_ogrzewania_CO_wezel_cieplowniczy_098" onclick="modernizacja_rodzaj_ogrzewania_CO_wezel_cieplowniczy_098() ; paliwo(); obliczenia()" ontouchend="modernizacja_rodzaj_ogrzewania_CO_wezel_cieplowniczy_098() ; paliwo(); obliczenia()">Węzeł ciepłowniczy (sieć) η=0,98</div>
+		<div class="button" id="modernizacja_rodzaj_ogrzewania_CO_powietrzna_pompa_ciepla_300" onclick="modernizacja_rodzaj_ogrzewania_CO_powietrzna_pompa_ciepla_300() ; paliwo(); obliczenia()" ontouchend="modernizacja_rodzaj_ogrzewania_CO_powietrzna_pompa_ciepla_300() ; paliwo(); obliczenia()">Powietrzna pompa ciepła napęd elektryczny η=3,00</div>
+		<div class="button" id="modernizacja_rodzaj_ogrzewania_CO_gazowa_pompa_ciepla_160" onclick="modernizacja_rodzaj_ogrzewania_CO_gazowa_pompa_ciepla_160() ; paliwo(); obliczenia()" ontouchend="modernizacja_rodzaj_ogrzewania_CO_gazowa_pompa_ciepla_160() ; paliwo()">Gazowa pompa ciepła typu glikol/woda η=1,60</div>
+		<div class="button" id="modernizacja_rodzaj_ogrzewania_CO_gruntowa_pompa_ciepla_poziomy_400" onclick="modernizacja_rodzaj_ogrzewania_CO_gruntowa_pompa_ciepla_poziomy_400() ; paliwo(); obliczenia()" ontouchend="modernizacja_rodzaj_ogrzewania_CO_gruntowa_pompa_ciepla_poziomy_400() ; paliwo(); obliczenia()">Gruntowa pompa ciepła z sondą poziomą η=4,00</div>
+		<div class="button" id="modernizacja_rodzaj_ogrzewania_CO_gruntowa_pompa_ciepla_pionowy_400" onclick="modernizacja_rodzaj_ogrzewania_CO_gruntowa_pompa_ciepla_pionowy_400() ; paliwo(); obliczenia()" ontouchend="modernizacja_rodzaj_ogrzewania_CO_gruntowa_pompa_ciepla_pionowy_400() ; paliwo(); obliczenia()">Gruntowa pompa ciepła z sondą pionową η=4,00</div>		
+	</div>
+</div>
+</div>
+		
+
+
+
+
+<div id="modernizacja_wymiana_rodzaj_instalacji_CO_rodzaj_czy_mozliwe">
+
+<div class="flex-container">
+<div class="flex-container1">
+	<div class="button" id="modernizacja_wymiana_rodzaj_instalacji_CO_nie" onclick="modernizacja_wymiana_rodzaj_instalacji_CO_tak(); obliczenia()" ontouchend="modernizacja_wymiana_rodzaj_instalacji_CO_tak(); obliczenia()">Wybierz modernizację instalacji ogrzewania w budynku</div>
+	<div class="button1" id="modernizacja_wymiana_rodzaj_instalacji_CO_tak" onclick="modernizacja_wymiana_rodzaj_instalacji_CO_nie(); obliczenia()" ontouchend="modernizacja_wymiana_rodzaj_instalacji_CO_nie(); obliczenia()">Cofnij modernizację instalacji ogrzewania w budynku</div>
+</div>
+	<div  id="modernizacja_wymiana_rodzaj_instalacji_CO_rodzaj">
+
+<div class="flex-container1">
+		<div class="classSTART" id="modernizacja_rodzaj_instalacji_CO_grzejniki_centralna_077" onclick="modernizacja_rodzaj_instalacji_CO_grzejniki_centralna_077(); obliczenia()" ontouchend="modernizacja_rodzaj_instalacji_CO_grzejniki_centralna_077(); obliczenia()">Ogrzewanie wodne, grzejniki, regulacja centralna η=0,77</div>
+		<div class="button" id="modernizacja_rodzaj_instalacji_CO_grzejniki_miejscowe_093" onclick="modernizacja_rodzaj_instalacji_CO_grzejniki_miejscowe_093(); obliczenia()" ontouchend="modernizacja_rodzaj_instalacji_CO_grzejniki_miejscowe_093(); obliczenia()">Ogrzewanie wodne, grzejniki, regulacja miejscowa (zawory termostatyczne) η=0,93</div>
+		<div class="button" id="modernizacja_rodzaj_instalacji_CO_podlogowe_centralna_076" onclick="modernizacja_rodzaj_instalacji_CO_podlogowe_centralna_076(); obliczenia()" ontouchend="modernizacja_rodzaj_instalacji_CO_podlogowe_centralna_076(); obliczenia()">Ogrzewanie wodne, podłogowe, regulacja centralna η=0,76</div>
+		<div class="button" id="modernizacja_rodzaj_instalacji_CO_podlogowe_miejscowe_089" onclick="modernizacja_rodzaj_instalacji_CO_podlogowe_miejscowe_089(); obliczenia()" ontouchend="modernizacja_rodzaj_instalacji_CO_podlogowe_miejscowe_089(); obliczenia()">Ogrzewanie wodne, podłogowe, regulacja miejscowa (miejscowy panel sterowania) η=0,89</div>
+	</div>
+</div>
+</div>
+
+</div>	
+	
+
+
+
+<div class="flex-container">
+<div class="flex-container1">
+	<div class="button" id="modernizacja_rodzaj_ogrzewania_CWU_nie" onclick="modernizacja_rodzaj_ogrzewania_CWU_tak(); paliwo(); obliczenia()" ontouchend="modernizacja_wymiana_rodzaj_instalacji_CO_tak() ; paliwo(); obliczenia()">Wybierz zmianę źródła przygotowania ciepłej wody użytkowej</div>
+	<div class="button1" id="modernizacja_rodzaj_ogrzewania_CWU_tak" onclick="modernizacja_rodzaj_ogrzewania_CWU_nie(); paliwo(); obliczenia()" ontouchend="modernizacja_wymiana_rodzaj_instalacji_CO_nie() ; paliwo(); obliczenia()">Cofnij zmianę źródła przygotowania ciepłej wody użytkowej</div>
+</div>
+	<div id="modernizacja_rodzaj_ogrzewania_CWU_rodzaj">
+<div class="flex-container1">
+		<div class="classSTART" id="modernizacja_rodzaj_ogrzewania_CWU_piec_gazowy_kondensacyjny_085" onclick="modernizacja_rodzaj_ogrzewania_CWU_piec_gazowy_kondensacyjny_085();  paliwo(); obliczenia()" ontouchend="modernizacja_rodzaj_ogrzewania_CWU_piec_gazowy_kondensacyjny_085() ;  paliwo(); obliczenia()">Piec gazowy kondensacyjny η=0,85</div>
+		<div class="button" id="modernizacja_rodzaj_ogrzewania_CWU_podgrzewacz_elektryczny_096" onclick="modernizacja_rodzaj_ogrzewania_CWU_podgrzewacz_elektryczny_096() ;  paliwo(); obliczenia()" ontouchend="modernizacja_rodzaj_ogrzewania_CWU_podgrzewacz_elektryczny_096() ;  paliwo(); obliczenia()">Miejscowe podgrzewacze elektryczne η=0,96</div>
+		<div class="button" id="modernizacja_rodzaj_ogrzewania_CWU_powietrzna_pompa_ciepla_260" onclick="modernizacja_rodzaj_ogrzewania_CWU_powietrzna_pompa_ciepla_260() ;  paliwo(); obliczenia()" ontouchend="modernizacja_rodzaj_ogrzewania_CWU_powietrzna_pompa_ciepla_260() ;  paliwo(); obliczenia()">Powietrzna pompa ciepła napęd elektryczny η=2,60</div>
+		<div class="button" id="modernizacja_rodzaj_ogrzewania_CWU_wezel_cieplowniczy_098" onclick="modernizacja_rodzaj_ogrzewania_CWU_wezel_cieplowniczy_098() ;  paliwo(); obliczenia()" ontouchend="modernizacja_rodzaj_ogrzewania_CWU_wezel_cieplowniczy_098() ;  paliwo(); obliczenia()">Węzeł ciepłowniczy (sieć) η=0,98</div>
+	</div>
+</div>
+</div>	
+
+
+<div id="kosztypaliwzestawienie" >
+	
+<div class="obramowanianiebieskie">	
+	<div id="kosztpaliwaprzed">
+	
+		<p>Jednostkowy koszt paliwa do ogrzewania domu przed modernizacją (ceny 2021)</p>
+		<span id="rodzaj_paliwa_kosztcoprzed">Węgiel</span> <input type="number" id="kosztcoprzed" name="kosztcoprzed" step="0.01" value="0.78" onclick="paliwo1()" ontouchend="paliwo1()">
+		
+		<span id="jednostka_paliwa_kosztcoprzed">tys zł/tonę</span>
+	
+	</div>
+	
+	<p>Jednostkowy koszt paliwa do przygotowania ciepłej wody przed modernizacją </p>
+	<div id="kosztpaliwaprzedcwu">
+		<span id="rodzaj_paliwa_kosztcwuprzed">Gaz ziemny</span>  <input type="number" id="kosztcwuprzed" name="kosztcwuprzed" step="0.01" value="1.8" onclick="paliwo1()" ontouchend="paliwo1()"> 
+		<span id="jednostka_paliwa_kosztcwuprzed">zł/m<sup>3</sup></span>
+	</div>
+
+	<p> Jednostkowy koszt paliwa do ogrzewania domu po modernizacji	</p>
+	<div id="kosztpaliwapo">
+		<span id="rodzaj_paliwa_kosztcopo">Węgiel</span> <input type="number" id="kosztcopo" name="kosztcopo" step="0.01" value="0.78" onclick="paliwo1()" ontouchend="paliwo1()"> 
+		<span id="jednostka_paliwa_kosztcopo">tys zł/tonę</span>
+		
+	</div>
+	
+	<p> Jednostkowy koszt paliwa do przygotowania ciepłej wody po modernizacji </p>
+	<div id="kosztpaliwapocwu">
+		<span id="rodzaj_paliwa_kosztcwupo">Gaz ziemny</span> <input type="number" id="kosztcwupo" name="kosztcwupo" step="0.01" value="1.8" onclick="paliwo1()" ontouchend="paliwo1()"> 
+		<span id="jednostka_paliwa_kosztcwupo">zł/m<sup>3</sup></span>
+		
+	</div>
+</div>
+
+</div>	
+
+</div>	
+
+
+
+</section>
+
+<section id="danedoobliczen">
+	
+<h4> Wyniki obliczeń </h4>
+
+
+<div class="flex-container1">
+
+	<div class="obramowanianiebieskie" >
+<div class="zewmodernizowanemale">
+	
+	<p4>Różnica zużycia energii</p4>
+	<p>Zmniejszenie zapotrzebowania na energię końcową na potrzeby ogrzewania oraz podgrzania wody</p> <div id=""><div class="p6"><span id="roznica_zuzycia_energii">0</span> </div></div> <p> GJ na rok </p> 
+	
+	<p>Szacunkowe zapotrzebowanie na energię końcową po modernizacji </p> <div id=""><div class="p5"><span id="zuzycie_energii_po_modernizacji">167.58</span> </div></div> <p> kWh/m<sup>2</sup> na rok </p> 
+	
+	<p>Szacunkowe zapotrzebowanie na energię końcową przed modernizacją</p> <div id=""><div class="p5"><span id="zuzycie_energii_przed_modernizacja">167.58</span> </div></div> <p> kWh/m<sup>2</sup> na rok </p> 
+
+	
+	</div>
+</div>
+	<div class="obramowanianiebieskie">
+<div class="zewmodernizowanemale">
+	<p4>Różnica kosztów ogrzewania</p4>
+	<p>Zmniejszenie średniorocznych kosztów na potrzeby ogrzewania oraz podgrzania wody </p> <div id=""><div class="p6"><span id="roznica_kosztow_ogrzewania">0</span></div></div><p> zł rocznie </p>
+	
+	<p>Szacunkowe koszty ogrzewania oraz podgrzania wody po modernizacji</p> <div id=""><div class="p5"><span id="koszty_ogrzewania_po">4457.73</span></div></div><p> zł rocznie </p>
+	
+	<p>Szacunkowe koszty ogrzewania oraz podgrzania wody przed modernizacją </p> <div id=""><div class="p5"><span id="koszty_ogrzewania_przed">4457.73</span></div></div><p> zł rocznie </p>
+	
+</div>
+	</div>
+	
+	<div class="obramowanianiebieskie" >
+<div class="zewmodernizowanemale">
+
+<p4>Koszt modernizacji i redukcja emisji CO<sub>2</sub></p4>
+
+	<p>Szacunkowy całkowity koszt modernizacji (Ceny 2021)</p> <div id=""><div class="p6"><span id="calkowity_koszt_modernizacji">0</span> </div></div><p> suma w zł</p>
+	
+	<p>Szacunkowy okres zwrotu inwestycji SPBT </p> <div id=""><div class="p5"><span id="okres_zwrotu_SPBT">0</span> </div></div><p> lata</p>
+
+	
+	<p>Redukcja średniorocznej emisji CO<sub>2</sub> do atmosfery:</p> <div id=""><div class="p5"><span id="redukcja_emisji_CO2">0</span> </div></div><p> ton rocznie</p>
+	</div>
+</div>
+</div>
+
+	
+	
+</section>
+
+
+
+</div >
+
+
+
+
+</main>
+
+<footer>
+<div id="footer">
+<p>Wszystkie prawa zastrzeżone. All rights reserved. &copy; 2021-<span id="data_rok"></span> Author: Wojciech Kłoszewski. Created with HTML5, CSS3, JS6 </p>
+
+<script>
+const d = new Date();
+document.getElementById("data_rok").innerHTML = d.getFullYear();
+
+
+</script>
+
+</div>
+</footer>
+
+</body>
+
+</html>
+
+
+
+
+

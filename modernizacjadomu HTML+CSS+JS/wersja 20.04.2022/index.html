@@ -1,0 +1,1005 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<title> Termomodernizacja budynku </title>
+<meta name="description" content="Na stronie internetowej znajduje się kalkulator dotyczący zmniejszenia zużycia energii w wyniku termomodernizacji budynku. Kalkulator stworzony został dla celów edukacyjnych"/>
+<meta name="keywords" content="termomodernizacja, audyt budynku, kalkulator energetyczny"/>
+<meta name="author" content="WK"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="energetyka.css" type="text/css"/>
+<script type="text/javascript" src="energetyka.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+	<script src="jquery.scrollTo.min.js"></script>
+
+
+<script>
+
+	jQuery(function($)
+	{
+	
+	$.scrollTo(0);
+
+	$('.scrollup').click(function() { $.scrollTo($('body'), 1000); });
+	}
+		);
+		
+	//pokaż podczas przewijania
+		$(window).scroll(function()
+		{
+		//jeżeli funkcja scroll ma wartość ponad 300 pikseli od góry wówszas pojawiaj się, w przeciwnym wypadku zniknij
+		
+			if($(this).scrollTop()>100) $('.scrollup').fadeIn();
+			else $('.scrollup').fadeOut();		
+		}
+		);
+
+</script>
+
+
+</head>
+
+<body onload="wczytaj()">
+
+<a href="#" class="scrollup"></a>
+
+<header id="header">
+
+<!--
+
+
+<div id="version" style="text-align: right">
+<a href="https://wojklos.epizy.com/modernizacjadomu/kalkulator-termomodernizacja" style="text-decoration: none; color: gray;">Wersja polska</a> / <a  href="https://wojklos.epizy.com/thermomodernisation/thermomodernisation-calculator" style="text-decoration: none; color: gray;">English version</a>
+</div>
+
+-->
+
+<div id="naglowek">
+
+
+<div class="flex-container" >
+	
+<div id="zdjecieheader">
+<img src="domenerg.png"/>
+</div>
+
+<div id="danewstepneheader">	
+
+<h1> EKO - MODERNIZACJA</h1>
+
+
+</div>
+<h1> Dom jednorodzinny przyjazny środowisku</h1> 
+</div>
+
+</div>
+
+	
+	
+	
+</header>
+
+<nav id="nav">
+<div class="flex-container">
+
+<a href="kalkulator-termomodernizacja" id="a">Kalkulator</a>
+<a href="https://wojklos.epizy.com/oze/kalkulator-oze" >Dobór OZE</a>
+<a href="kalkulator-metodologia">Metodologia</a>
+<a href="kalkulator-autor" >O autorze</a>
+
+</div>
+</nav>
+
+<main>
+
+<article>
+
+<section id="danedoobliczen" >
+
+
+<div id="center">	
+
+	<h3> Kalkulator termomodernizacji domu jednorodzinnego </h3> 
+
+	
+	<div id="obramowaniedom">
+<picture>
+<img src="domek.jpg" />
+
+<figcaption><p4>Rys. Ucieczka ciepła z budynku jednorodzinnego </p4></figcaption>
+</picture>
+</div>
+
+</div>
+
+
+<div class="tekstwstepny">
+
+<div class="flex-container">
+
+ <div class="instrukcja"><p>Krok I </p> Wypełnij zielone pola zakładki dane podstawowe  </div>
+ <div  class="instrukcja"><p>Krok II </p> Określ co będzie modernizowane zakreślając odpowiednie pola checkbox  </div>
+ <div  class="instrukcja"><p>Krok III </p> Kliknij przycisk oblicz lub przejdź do danych szczegółowych</div>
+ <div  class="instrukcja"><p>Krok IV </p> Po danych szczegółowych kliknij przycisk oblicz. Wyniki podano w niebieskich polach. </div>
+</div>
+
+
+<p5>Kalkulator oblicza roczne szacunkowe zmniejszenie zużycia energii, kosztów ogrzewania oraz redukcji emisji CO<sub>2</sub> w wyniku przeprowadzenia działań termomodernizacyjnych. Należy pamiętać, że obliczenia mają jedynie charakter szacunkowy, zaś kalkulator ma wyłącznie charakter edukacyjny i nie może być wykorzystywany do celów komercyjnych zarówno w cześci jak i w całości &copy;  </p5>
+
+
+</div>
+
+<div class="flex-container">
+
+
+<div id="danepodstawowe">
+<div class="obramowania">
+
+<p1> Krok I - Dane podstawowe: </p1>
+
+<p> Podaj podstawowe dane. Część pól można zmienić w zakładkach danych szczegółowych </p>
+
+<table>
+  <tr>
+    <td>Podaj orientacyjny wiek budynku lub okres w którym nastąpiła ostatnia głęboka modernizacja: </td> 
+	<td>
+	
+		<div >
+			<label for="1rodzajdomu"> </label>
+			  <select  id="1rodzajdomu" name="1rodzajdomu" onclick="rodzajdomu()" ontouchend="rodzajdomuzatwierdz()">
+				<option value="przed1945">Dom niemodernizowany od co najmniej 1945</option>
+				<option value="19461966">Dom niemodernizowany od co najmniej 1946-1966 </option>
+				<option value="19671985">Dom niemodernizowany od co najmniej 1967-1985 </option>
+				<option value="19862000">Dom niemodernizowany od co najmniej 1986-2000 </option>
+				<option value="20012008" selected>Dom niemodernizowany od co najmniej 2001-2008 </option>
+				<option value="po2009">Dom niemodernizowany od ok 2009 </option>
+			  </select>
+		</div>
+
+	<div id="rodzajdomuzatwierdz"></div>
+
+	</td>
+
+  </tr>
+  
+  <tr>
+    <td>Powierzchnia domu ogrzewana(w tym powierzchnia strychu jeśli jest ogrzewany): </td> 
+	
+	<td>
+	
+		<div id="1Adomu">
+		<label> <input type="number" id="Adomu" name="Adomu" size="4" value="150" oninput="Adomu()"> m<sup>2</sup></label>
+		</div>
+	
+	</td>
+	
+  </tr>
+  
+   <tr>
+    <td>Czy strych ogrzewany? Jeśli tak, proszę zaznaczyć pole:</td> 
+	
+	<td>
+	
+		<div id="1czystrychczydach"> 
+		<label for="czystrychczydach"></label>
+		<input type="checkbox" id="czystrychczydach" name="czystrychczydach" value="ogrzewanystrych" onclick="czystrychczydach()">
+		</div>
+	
+	</td>
+		
+  </tr>
+  
+  <tr>
+    <td> Kubatura powierzchni ogrzewanej </td> 
+	
+	<td>
+	
+		<div id="1Vdomu">
+		<label><input type="number" id="Vdomu" name="Vdomu" value="390"> m<sup>3</sup></label>
+		</div>
+	
+	</td>
+		
+  </tr>
+  
+    <tr>
+    <td>Liczba osób użytkujących budynek: </td> 
+	
+	<td>
+		<div id="1osob">
+		<label><input type="number" id="losob" name="losob" value="4"></label>
+		</div>
+	</td>
+	
+  </tr>
+  
+    <tr>
+    <td>Dobowe zużycie ciepłej wody na osobę: 
+	
+		
+	</td>
+
+	<td>
+	
+	<div class="flex-container">
+		<div id="1zuzwodyselect" style="width: 60%; padding-right: 20px;"> 
+		<label for="zuzwodyselect"></label><select id="zuzwodyselect" name="zuzwodyselect" onclick="zuzwodyselect()" ontouchend="wodazatwierdz"><option value="niskie" selected>Niskie</option><option value="srednie">Średnie</option><option value="wysokie">Wysokie</option></select>
+		</div>
+		
+		<div id="wodazatwierdz"></div>
+		
+		<div id="1zuzwody" > 
+		<label><input type="number" id="zuzwody" name="zuzwody" value="35"> dm<sup>3</sup></label>
+		</div>
+	</div>
+	
+	
+	</td>
+	
+	
+  </tr>
+  
+    <tr>
+    <td>Rodzaj ogrzewania co: 
+	
+	
+	
+	</td> 
+	
+	<td>
+	
+		<div id="1nieaktywnyrodzajco">
+		
+		<label for="nieaktywnyrodzajco"></label><select id="nieaktywnyrodzajco" name="nieaktywnyrodzajco" onclick="rodzajco1()" ontouchend="rodzajcozatwierdz()"><option value="copieckaflowy">Stary piec kaflowy η=0,25</option><option value="coweglowyprzed1980" selected>Stary piec węglowy sprzed 1980 η=0,6</option><option value="coweglowy19802000">Stary piec węglowy produkcji 1980-2000 η=0,65</option><option value="coweglowy2000">Piec węglowy produkcji po 2000 η=0,82</option> <option value="cokociolnabiomasestary">Stary kocioł na biomasę η=0,7</option><option value="cokociolnabiomasenowy">Nowoczesny kocioł na biomasę η=0,85</option> <option value="cokominekzplaszczem">Kominek z płaszczem wodnym η=0,7</option> <option value="cokominekzwykly">Stary kominek η=0,4</option><option value="cogrzejnikelektryczny">Miejscowe ogrzewanie elektryczne η=0,99</option><option value="copiecolejowy">Piec olejowy η=0,84</option><option value="costarypiecgazowy">Stary piec gazowy η=0,87</option><option value="copiecgazowykondensacyjny" >Piec gazowy kondensacyjny η=0,94</option><option value="cogruntowapompaciepla">Gruntowa pompa ciepła napęd elektryczny η=4,0</option><option value="copowietrznapompaciepla">Powietrzna pompa ciepła napęd elektryczny η=3,0</option><option value="cogazowapompaciepla">Gazowa pompa ciepła typu glikol/woda η=1,6</option><option value="cowezelciepla">Węzeł ciepłowniczy (sieć) η=0,98</option></select>
+		
+		
+		</div>
+		
+	<div id="rodzajcozatwierdzb"></div>
+	
+	</td>
+	
+	
+  </tr>
+  
+    <tr>
+    <td>Rodzaj instalacji co: </td> 
+	
+	<td>
+	
+		<div id="1nieaktywnyrodzajinstalacjico">
+		
+		<label for="nieaktywnyrodzajinstalacjico"></label><select id="nieaktywnyrodzajinstalacjico" name="nieaktywnyrodzajinstalacjico" onclick="rodzajconadole()" ontouchend="rodzajinstalacjicozatwierdz()"><option value="coprzesylgrzejnikibezregulacji">Ogrzewanie wodne, grzejniki, regulacja centralna η=0,77</option><option value="coprzesylgrzejnikizregulacja">Ogrzewanie wodne, grzejniki, regulacja miejscowa (zawory termostatyczne) η=0,93</option><option value="coprzesylpodlogabezregulacji">Ogrzewanie wodne, podłogowe, regulacja centralna η=0,76</option><option value="coprzesylpodlogazregulacja">Ogrzewanie wodne, podłogowe, regulacja miejscowa (panel z regulacją miejscową) η=0,89</option></select>
+		
+		</div>	
+
+			<div id="rodzajinstalacjicozatwierdz"></div>
+	
+	</td>
+	
+  </tr>
+  
+    <tr>
+    <td>Czy w budynku znajduje się zbiornik akumulacyjny ciepła? Jeśli tak, proszę zaznaczyć pole: </td> 
+	
+	<td>
+	
+	<div id="1nieaktywnyzbiornikco">
+	
+	<label for="nieaktywnyczyzbiornikco"></label>
+	<input type="checkbox" id="nieaktywnyczyzbiornikco" name="nieaktywnyczyzbiornikco" value="zbiornikco" onclick="niekatywnyzbirnikco()">
+	
+	</div>
+	
+	</td>
+	
+  </tr>
+  
+    <tr>
+    <td>Rodzaj źródła do przygotowania ciepłej wody użytkowej: </td> 
+	
+	<td>
+	
+	<div id="1nieaktywnyrodzajcwu">
+	
+	<label for="nieaktywnyrodzajcwu"></label>
+			  <select id="nieaktywnyrodzajcwu" name="nieaktywnyrodzajcwu" onclick="selectnieaktywnyrodzajcwu()" ontouchend="rodzajinstalacjicwuzatwierdz()">
+				<option value="cwupiecstarygazowy">Piec stary gazowy sprzed 1980 (bojler) η=0,40</option>
+				<option value="cwustarygazowy2000" selected>Piec stary gazowy sprzed 2000 η=0,65</option>
+				<option value="cwunowygazowy">Piec nowy gazowy niekondensacyjny η=0,83</option>
+				<option value="cwupiecgazowykondensacyjny" >Piec gazowy kondensacyjny η=0,85</option>
+				<option value="cwupodgrzewaczelektryczny">Podgrzewacz elektryczny η=0,96</option>
+				<option value="cwupowietrznapompacieplacwu">Powietrzna pompa ciepła η=2,6</option>
+				<option value="cwugruntowapompaciepla">Gruntowa pompa ciepła η=3,0</option>
+				<option value="cwugazowapompaciepla">Gazowa pompa ciepła η=1,3</option>
+				<option value="cwuwezelcieplny">Węzeł ciełowniczy η=0,98</option>
+			  </select>
+
+	</div>
+	
+	<div id="rodzajinstalacjicwuzatwierdz"></div>
+	
+	</td>
+	
+  </tr>
+  
+  <tr>
+  
+  <td> Temperatura wewnątrz domu </td> 
+  
+  <td>
+	<div id="1tw">
+	<label> <input type="number" id="tw" name="tw" value="20"> <sup>o</sup>C</label>
+	</div>
+  </td> 
+  
+  </tr>
+  
+</table>
+
+</div>
+</div>
+
+
+<div id="blokcobedziemodernizowane">
+<div class="obramowania">
+
+	<p1> Krok II - &#9874; Modernizacja: </p1>
+	
+	<p> Zaznacz jakie prace będą wykonane celem modernizacji budynku. </p>
+	
+	<div id="cobedziemodernizowane" style="margin-left: 20px;">	
+	 <input type="checkbox" id="modernizacjasciany" name="modernizacjasciany" value="modernizacjasciany" onclick="modernizacja()">
+	  <label for="modernizacjasciany"> Ocieplenie wszystkich ścian</label></br>
+	  <input type="checkbox" id="modernizacjaokien" name="modernizacjaokien" value="modernizacjaokien" onclick="modernizacja()">
+	  <label for="modernizacjaokien"> Wymiana wszystkich okien </label></br>
+	  <input type="checkbox" id="modernizacjadrzwi" name="modernizacjadrzwi" value="modernizacjadrzwi" onclick="modernizacja()">
+	  <label for="modernizacjadrzwi"> Wymiana wszystkich drzwi</label></br>
+	  <input type="checkbox" id="modernizacjapodlogi" name="modernizacjapodlogi" value="modernizacjapodlogi" onclick="modernizacja()">
+	  <label for="modernizacjapodlogi"> Ocieplenie całej podłogi</label></br>
+	  <input type="checkbox" id="modernizacjadachu" name="modernizacjadachu" value="modernizacjadachu" onclick="modernizacja()">
+	  <label for="modernizacjadachu"> Ocieplenie całej przegrody dachowej</label></br>
+	  <input type="checkbox" id="modernizacjaco" name="modernizacjaco" value="modernizacjaco" onclick="modernizacjaco()" >
+	  <label for="modernizacjaco"> Zmiana źródła ciepła do ogrzewania domu</label></br>
+	 
+
+	 <div style="margin-left: 25px;" id="2nrodzajco">
+	<label for="21nieaktywnyrodzajco">Rodzaj co:</label><select id="21nieaktywnyrodzajco" name="21nieaktywnyrodzajco" disabled ><option value="copieckaflowy">Stary piec kaflowy η=0,25</option><option value="coweglowyprzed1980" selected>Stary piec węglowy -aktywuj listę rozwijaną klikając pole checkbox  </option><option value="coweglowy19802000">Stary piec węglowy produkcji 1980-2000 η=0,65</option><option value="coweglowy2000">Piec węglowy produkcji po 2000 η=0,82</option> <option value="cokociolnabiomasestary">Stary kocioł na biomasę η=0,7</option> <option value="cokociolnabiomasenowy">Nowoczesny kocioł na biomasę η=0,85</option> <option value="cokominekzplaszczem">Kominek z płaszczem wodnym η=0,7</option> <option value="cokominekzwykly">Stary kominek η=0,4</option><option value="cogrzejnikelektryczny">Miejscowe ogrzewanie elektryczne η=0,99</option><option value="copiecolejowy">Piec olejowy η=0,84</option><option value="costarypiecgazowy">Stary piec gazowy η=0,87</option><option value="copiecgazowykondensacyjny" >Piec gazowy kondensacyjny η=0,94</option><option value="cogruntowapompaciepla">Gruntowa pompa ciepła napęd elektryczny η=4,0</option><option value="copowietrznapompaciepla">Powietrzna pompa ciepła napęd elektryczny η=3,0</option><option value="cogazowapompaciepla">Gazowa pompa ciepła typu glikol/woda η=1,6</option><option value="cowezelciepla">Węzeł ciepłowniczy (sieć) η=0,98</option></select>
+	</div>
+	
+	<div id="rodzajco1zatwierdz"></div>
+
+	<div style="margin-left: 25px;" id="2nrodzajinstalacjico">
+	<label for="21nieaktywnyrodzajinstalacjico">Rodzaj instalacji co: </label><select id="21nieaktywnyrodzajinstalacjico" name="21nieaktywnyrodzajinstalacjico" disabled><option value="coprzesylgrzejnikibezregulacji">Ogrzewanie wodne, grzejniki, regulacja centralna -aktywuj listę rozwijaną klikając pole checkbox ☐</option><option value="coprzesylgrzejnikizregulacja">Ogrzewanie wodne, grzejniki, regulacja miejscowa (zawory termostatyczne) η=0,93</option><option value="coprzesylpodlogabezregulacji">Ogrzewanie wodne, podłogowe, regulacja centralna η=0,76</option><option value="coprzesylpodlogazregulacja">Ogrzewanie wodne, podłogowe, regulacja miejscowa (panel z regulacją miejscową) η=0,89</option></select>
+	</div>
+	
+	<div id="rodzajinstalacjico1zatwierdz"></div>
+
+	<div style="margin-left: 25px;" id="2nzbiornikco"> 
+	<label for="x">Czy w budynku znajduje się zbiornik akumulacyjny ciepła? -aktywuj pole klikając na checkbox ☐ zmiana źródła ciepła</label><input type="checkbox" id="x" name="x" value="x" disabled>
+	</div>  
+	  
+	  <input type="checkbox" id="modernizacjacwu" name="modernizacjacwu" value="modernizacjacwu" onclick="modernizacjacwu()">
+	  <label for="modernizacjacwu"> Zmiana źródła przygotowania ciepłej wody użytkowej</label></br>
+	  
+	  	<div style="margin-left: 25px;" id="2nrodzajcwu">
+		<label for="21nieaktywnyrodzajcwu">Rodzaj źródła ciepła do przygotowania ciepłej wody użytkowej: </label><select    id="21nieaktywnyrodzajcwu" name="21nieaktywnyrodzajcwu" disabled><option value="cwupiecstarygazowy">Piec stary gazowy sprzed 1980 (bojler) η=0,40 </option><option value="cwustarygazowy2000" selected>Piec stary gazowy -aktywuj listę rozwijaną klikając pole checkbox ☐</option><option value="cwunowygazowy">Piec nowy gazowy niekondensacyjny η=0,83</option><option value="cwupiecgazowykondensacyjny" >Piec gazowy kondensacyjny η=0,85</option><option value="cwupodgrzewaczelektryczny">Podgrzewacz elektryczny η=0,96</option><option value="cwupowietrznapompacieplacwu">Powietrzna pompa ciepła η=2,6</option><option value="cwugruntowapompaciepla">Gruntowa pompa ciepła η=3,0</option><option value="cwugazowapompaciepla">Gazowa pompa ciepła η=1,3</option><option value="cwuwezelcieplny">Węzeł ciełowniczy η=0,98</option></select>
+		</div>
+		
+		<div id="rodzajinstalacjicwu1zatwierdz"></div>
+	  
+	  <input type="checkbox" id="modernizacjawentylacji" name="modernizacjawentylacji" value="modernizacjawentylacji" onclick="modernizacjawentylacji()">
+	  <label for="modernizacjawentylacji"> Zmiana rodzaju wentylacji budynku</label></br>
+	  
+	  	<div style="margin-left: 25px;" id="1nieaktywnyrodzajwentylacji">
+		<label for="1nrodzajwentylacji">Rodzaj wentylacji: </label><select id="1nrodzajwentylacji" name="1nrodzajwentylacji" disabled ><option value="wentylacjagrawitacyjna">Grawitacyjna-aktywuj listę rozwijaną klikając pole checkbox ☐ </option><option value="wentylacjamechaniczna60">Mechaniczna z rekuperacją 60%</option><option value="wentylacjamechaniczna85">Mechaniczna z rekuperacją 85%</option></select>
+		</div>	
+
+			<div id="rodzajwentylacji1zatwierdz"></div>
+	  
+	</div>
+	
+
+</div>
+</div>
+
+</div>
+<div class="flex-container">
+
+
+	<div id="obliczwstepne" class="flex-container">
+		<div class="oblicz">
+			Rozwiń dane szczegółowe
+			</div>
+	</div>
+
+	<div  class="flex-container" >
+	<div id="obliczwstepne1" hidden>
+		<div class="oblicz" >
+			Zwiń dane szczegółowe
+			</div>
+	</div>
+	</div>
+</div>	
+		
+</section>
+
+<section id="daneszczegolowe" hidden>
+
+<h2> Krok III - Dane szczegółowe </h2>
+
+<div class="flex-container">
+
+	<div class="obramowaniamodernizowane" style="border: 2px solid #AD091F;">
+	<div class="center">
+	<p2>Przegroda dachowa</p2>
+	</div>
+	<div class="obramowaniamodernizowane1" style="border: 2px solid #AD091F;">
+
+	<p3> Przed modernizacją:</p3>
+	<div class="obramowaniamodernizowane2" style="border: 2px solid #AD091F;">
+		<div id="1powdachu">
+		<label> Powierzchnia stropu pod nieogrzewanym poddaszem <input type="number" id="powdachu" name="powdachu" value="150"> m<sup>2</sup></label>
+		</div>
+
+
+	<div id="1udachu">
+	<label> Grubość docieplenia stropu pod nieogrzewanym poddaszem <input type="number" id="udachu" name="udachu" value="10"> cm </label>
+	</div>
+	</div>
+
+	<p3> Po modernizacji:</p3>
+	<div class="obramowaniamodernizowane2" style="border: 2px solid #AD091F;">
+	
+		<div id="2udachu">
+		<label> Grubość docieplenia stropu pod nieogrzewanym poddaszem <input type="number" id="21udachu" name="21udachu" value="10"> cm </label>
+		</div>
+	
+	</div>
+	</div>
+	</div>
+
+
+<div id="wentylacja">
+
+	<div class="obramowaniamodernizowane" style="border: 2px solid #152261;">
+	<div class="center">
+		<p2>Wentylacja</p2>
+	</div>
+	<div class="obramowaniamodernizowane1" style="border: 2px solid #152261;">
+
+	<p3> Przed modernizacją:</p3>
+	<div class="obramowaniamodernizowane2" style="border: 2px solid #152261;">
+				<div id="1rodzajwentylacji">
+		<label for="rodzajwentylacji">Rodzaj wentylacji: </label>
+		  <select id="rodzajwentylacji" name="rodzajwentylacji">
+			<option value="wentylacjagrawitacyjna" selected>Grawitacyjna</option>
+			<option value="wentylacjamechaniczna60">Mechaniczna z rekuperacją 60%</option>
+			<option value="wentylacjamechaniczna85">Mechaniczna z rekuperacją 85%</option>
+		  </select>
+		</div>
+
+		<div id="rodzajwentylacji2zatwierdz"></div>
+		
+	</div>
+
+	<p3> Po modernizacji:</p3>
+	<div class="obramowaniamodernizowane2" style="border: 2px solid #152261;">
+	
+	<div id="2rodzajwentylacji">
+		<label for="21rodzajwentylacji">Rodzaj wentylacji: </label>
+		  <select id="21rodzajwentylacji" name="21rodzajwentylacji">
+			<option value="wentylacjagrawitacyjna" selected>Grawitacyjna</option>
+			<option value="wentylacjamechaniczna60">Mechaniczna z rekuperacją 60%</option>
+			<option value="wentylacjamechaniczna85">Mechaniczna z rekuperacją 85%</option>
+		  </select>
+	</div>
+
+	<div id="rodzajwentylacji3zatwierdz"></div>
+	
+	</br>
+	</div>
+	</div>
+	</div>
+	</div>
+	
+	
+	<div id="drzwi">	
+	
+	<div class="obramowaniamodernizowane"  style="border: 2px solid #613F15;" >
+	<div class="center">
+		<p2>Drzwi</p2>
+	</div>
+	<div class="obramowaniamodernizowane1" style="border: 2px solid #613F15;">
+
+	<p3> Przed modernizacją:</p3>
+	<div class="obramowaniamodernizowane2" style="border: 2px solid #613F15;">
+	
+			<div id="1powdrzwi">
+		<label> Powierzchnia drzwi <input type="number" id="powdrzwi" name="powdrzwi" step="0.1" value="2.2">m<sup>2</sup></label>
+		</div>
+
+		<div id="1rodzajdrzwi">
+		<label for="rodzajdrzwi">Rodzaj drzwi </label>
+		  <select id="rodzajdrzwi" name="rodzajdrzwi" onclick="rodzajdrzwi()" ontouchend="rodzajdrzwizatwierdz()">
+			<option value="drzwidrewstare50">Stare nieszczelne drzwi drewniane</option>
+			<option value="drzwidrewstare35">Stare szczelne drzwi drewniane</option>
+			<option value="drzwipcv26" selected>Stare szczelne drzwi PCV</option>
+			<option value="drzwipcvnowe17">Nowe drzwi spełniające WT 2014</option>
+			<option value="drzwipcvnowe15">Nowe drzwi spełniające WT 2017</option>
+			<option value="drzwipcvnowe13">Nowe drzwi spełniające WT 2021</option>
+		  </select>
+		</div>
+		
+		<div id="rodzajdrzwizatwierdz"></div>
+
+		<div id="1udrzwi">
+		<label> U drzwi <input type="number" id="udrzwi" name="udrzwi" step="0.1" value="2.6"> W/(m<sup>2</sup>K)</label>
+		</div>	
+	
+	</div>
+
+	<p3> Po modernizacji:</p3>
+	<div class="obramowaniamodernizowane2" style="border: 2px solid #613F15;">
+	
+			<div id="2udrzwi">
+		<label> U drzwi <input type="number" id="21udrzwi" name="21udrzwi" step="0.1" value="2.6"> W/(m<sup>2</sup>K)</label>
+		</div>
+
+	</div>
+	</div>
+	</div>
+</div>
+	
+
+
+<div id="okna">
+
+
+	<div class="obramowaniamodernizowane" style="border: 2px solid #478DAD;">
+	<div class="center">
+		<p2>Okna</p2>
+	</div>
+	<div class="obramowaniamodernizowane1" style="border: 2px solid #478DAD;">
+
+	<p3> Przed modernizacją:</p3>
+	<div class="obramowaniamodernizowane2" style="border: 2px solid #478DAD;">
+	
+			<div id="1powokien">
+		<label> Powierzchnia okien <input type="number" id="powokien" name="powokien" step="0.1" value="31.9">m<sup>2</sup></label>
+		</div>
+
+		<div id="1rodzajokien">
+		<label for="rodzajokien">Rodzaj okien </label>
+		  <select id="rodzajokien" name="rodzajokien" onclick="rodzajokien" ontouchend="rodzajokienzatwierdz()">
+			<option value="oknadrewstare51">Stare nieszczelne okna drewniane</option>
+			<option value="oknadrewstare35">Stare szczelne okna drewniane szklone pojedynczo</option>
+			<option value="oknadrew26">Stare szczelne okna drewniane szklone podwójnie</option>
+			<option value="oknadrew20">Stare szczelne okna drewniane szklone potrójnie</option>
+			<option value="oknapcvstare16" selected>Stare szczelne okna PCV</option>
+			<option value="oknapcvnowe13">Nowe okna spełniające WT 2014</option>
+			<option value="oknapcvnowe11">Nowe okna spełniające WT 2017</option>
+			<option value="oknapcvnowe09">Nowe okna spełniające WT 2021</option>
+		  </select>
+		</div>
+		
+		<div id="rodzajokienzatwierdz"></div>
+
+		<div id="1uokna">
+		<label> U okien <input type="number" id="uokna" name="uokna" step="0.1" value="1.6">W/(m<sup>2</sup>K)</label>
+		</div>
+	
+	</div>
+
+	<p3> Po modernizacji:</p3>
+	<div class="obramowaniamodernizowane2" style="border: 2px solid #478DAD;">
+	
+		<div id="2uokna">
+		<label> U okien <input type="number" id="21uokna" name="21uokna" step="0.1" value="1.6">W/(m<sup>2</sup>K)</label>
+		</div>
+
+	</div>
+	</div>
+	</div>
+	</div>
+	
+	<div id="sciany">
+
+	<div class="obramowaniamodernizowane"  style="border: 2px solid #75737A;"   >
+	<div class="center">
+		<p2>Ściany</p2>
+	</div>
+	<div class="obramowaniamodernizowane1"  style="border: 2px solid #75737A;" >
+
+	<p3> Przed modernizacją:</p3>
+	<div class="obramowaniamodernizowane2" style="border: 2px solid #75737A;">
+	
+		<div id="1powscian">
+		<label> Powierzchnia ścian <input type="number" id="powscian" name="powscian"  value="102">m<sup>2</sup></label>
+		</div>
+
+		<div id="1dscian">
+		<label> Grubość docieplenia ścian zewnętrznych <input type="number" id="dscian" name="dscian" value="12"> cm </label>
+		</div>
+		
+	</div>
+
+	<p3> Po modernizacji:</p3>
+	<div class="obramowaniamodernizowane2" style="border: 2px solid #75737A;">
+	
+		<div id="2dscian">
+		<label> Grubość docieplenia ścian zewnętrznych <input type="number" id="21dscian" name="21dscian" value="12"> cm </label>
+		</div> 
+
+	</div>
+	</div>
+	</div>
+
+</div>
+
+
+
+
+	<div class="obramowaniamodernizowane" style="border: 2px solid #91381A;">
+	<div class="center">
+		<p2>Podłoga</p2>
+	</div>
+	<div class="obramowaniamodernizowane1" style="border: 2px solid #91381A;">
+
+	<p3> Przed modernizacją:</p3>
+	<div class="obramowaniamodernizowane2" style="border: 2px solid #91381A;">
+	
+		<div id="1powpodlogi">
+		<label> Powierzchnia podłogi <input type="number" id="powpodlogi" name="powpodlogi" value="150">m<sup>2</sup></label>
+		</div>
+
+		<div id="1upodlogi">
+		<label> Grubość docieplenia podłogi <input type="number" id="upodlogi" name="upodlogi" value="5"> cm </label>
+		</div>
+				
+	</div>
+
+	<p3> Po modernizacji:</p3>
+	<div class="obramowaniamodernizowane2" style="border: 2px solid #91381A;">
+	
+			<div id="2upodlogi">
+		<label> Grubość docieplenia podłogi <input type="number" id="21upodlogi" name="21upodlogi" value="5"> cm </label>
+		</div>	
+
+	</div>
+	</div>
+	</div>
+
+
+	<div class="obramowaniamodernizowane" style="border: 2px solid #E8430C;">
+	<div class="center">
+		<p2>Rodzaj ogrzewania</p2>
+	</div>
+	<div class="obramowaniamodernizowane1" style="border: 2px solid #E8430C;">
+
+	<p3> Przed modernizacją:</p3>
+	<div class="obramowaniamodernizowane2" style="border: 2px solid #E8430C;">	
+				
+		
+		<div id="1rodzajco">
+			<label for="rodzajco">Rodzaj co:</label>
+			<select id="rodzajco" name="rodzajco" onclick="rodzajco()" ontouchend="rodzajcoprzedzatwierdz()">
+			<option value="copieckaflowy">Stary piec kaflowy η=0,25</option>
+			<option value="coweglowyprzed1980" selected>Stary piec węglowy sprzed 1980 η=0,6</option>
+			<option value="coweglowy19802000">Stary piec węglowy produkcji 1980-2000 η=0,65</option>
+			<option value="coweglowy2000">Piec węglowy produkcji po 2000 η=0,82</option> 
+			<option value="cokociolnabiomasestary">Stary kocioł na biomasę η=0,7</option> 
+			<option value="cokociolnabiomasenowy">Nowoczesny kocioł na biomasę η=0,85</option> 
+			<option value="cokominekzplaszczem">Kominek z płaszczem wodnym η=0,7</option> 
+			<option value="cokominekzwykly">Stary kominek η=0,4</option>
+			<option value="cogrzejnikelektryczny">Miejscowe ogrzewanie elektryczne η=0,99</option>
+			<option value="copiecolejowy">Piec olejowy η=0,84</option>
+			<option value="costarypiecgazowy">Stary piec gazowy η=0,87</option>
+			<option value="copiecgazowykondensacyjny" >Piec gazowy kondensacyjny η=0,94</option>
+			<option value="cogruntowapompaciepla">Gruntowa pompa ciepła napęd elektryczny η=4,0</option>
+			<option value="copowietrznapompaciepla">Powietrzna pompa ciepła napęd elektryczny η=3,0</option>
+			<option value="cogazowapompaciepla">Gazowa pompa ciepła typu glikol/woda η=1,6</option>
+			<option value="cowezelciepla">Węzeł ciepłowniczy (sieć) η=0,98</option>
+			</select>
+		</div>
+			
+			<div id="rodzajcoprzedzatwierdz"></div>
+		
+		<div id="1rodzajinstalacjico">
+			<label for="rodzajinstalacjico">Rodzaj instalacji co: </label><select id="rodzajinstalacjico" name="rodzajinstalacjico"><option value="coprzesylgrzejnikibezregulacji">Ogrzewanie wodne, grzejniki, regulacja centralna η=0,77</option><option value="coprzesylgrzejnikizregulacja">Ogrzewanie wodne, grzejniki, regulacja miejscowa (zawory termostatyczne) η=0,93</option><option value="coprzesylpodlogabezregulacji">Ogrzewanie wodne, podłogowe, regulacja centralna η=0,76</option><option value="coprzesylpodlogazregulacja">Ogrzewanie wodne, podłogowe, regulacja miejscowa (panel z regulacją miejscową) η=0,89</option></select>
+		</div>
+		
+		<div id="rodzajinstalacjicoprzedzatwierdz"></div>
+		
+		<div id="1zbiornikco"> 
+			<label for="czyzbiornikco">Czy w budynku znajduje się zbiornik akumulacyjny ciepła? Jeśli tak, proszę zaznaczyć pole:</label>
+			<input type="checkbox" id="czyzbiornikco" name="czyzbiornikco" value="zbiornikco" >
+		</div>	
+				
+	</div>
+
+	<p3> Po modernizacji:</p3>
+	
+<div class="obramowaniamodernizowane2" style="border: 2px solid #E8430C;">
+	
+	
+			<div id="2rodzajco">
+<label for="21rodzajco">Rodzaj ogrzewania co:</label><select id="21rodzajco" name="21rodzajco" onclick="rodzajco2()" ontouchend="rodzajcopozatwierdz()"><option value="copieckaflowy">Stary piec kaflowy η=0,25</option><option value="coweglowyprzed1980" selected>Stary piec węglowy sprzed 1980 η=0,6</option><option value="coweglowy19802000">Stary piec węglowy produkcji 1980-2000 η=0,65</option><option value="coweglowy2000" >Piec węglowy produkcji po 2000 η=0,82</option><option value="cokociolnabiomasestary">Stary kocioł na biomasę η=0,7</option><option value="cokociolnabiomasenowy">Nowoczesny kocioł na biomasę η=0,85</option><option value="cokominekzplaszczem">Kominek z płaszczem wodnym η=0,7</option><option value="cokominekzwykly">Stary kominek η=0,4</option><option value="cogrzejnikelektryczny">Miejscowe ogrzewanie elektryczne η=0,99</option><option value="copiecolejowy">Piec olejowy η=0,84</option><option value="costarypiecgazowy">Stary piec gazowy η=0,87</option><option value="copiecgazowykondensacyjny" >Piec gazowy kondensacyjny η=0,94</option><option value="cogruntowapompaciepla">Gruntowa pompa ciepła napęd elektryczny η=4,0</option><option value="copowietrznapompaciepla">Powietrzna pompa ciepła napęd elektryczny η=3,0</option><option value="cogazowapompaciepla">Gazowa pompa ciepła typu glikol/woda η=1,6</option><option value="cowezelciepla">Węzeł ciepłowniczy (sieć) η=0,98</option></select>
+		</div>
+			
+		<div id="rodzajcopozatwierdz"></div>
+		
+		<div id="2rodzajinstalacjico">
+			<label for="21rodzajinstalacjico">Rodzaj instalacji co:</label><select id="21rodzajinstalacjico" name="21rodzajinstalacjico"><option value="coprzesylgrzejnikibezregulacji">Ogrzewanie wodne, grzejniki, regulacja centralna η=0,77</option><option value="coprzesylgrzejnikizregulacja">Ogrzewanie wodne, grzejniki, regulacja miejscowa (zawory termostatyczne) η=0,93</option><option value="coprzesylpodlogabezregulacji">Ogrzewanie wodne, podłogowe, regulacja centralna η=0,76</option><option value="coprzesylpodlogazregulacja">Ogrzewanie wodne, podłogowe, regulacja miejscowa (panel z regulacją miejscową) η=0,89</option></select>
+		</div>
+		
+		<div id="rodzajinstalacjicopozatwierdz"></div>
+		
+		<div id="2zbiornikco">
+		
+		<label for="pozbiornikco"> Czy w budynku będzie znajdować się zbiornik akumulacyjny ciepła? Jeśli tak, proszę zaznaczyć pole: </label><input type="checkbox" id="pozbiornikco" name="pozbiornikco" value="pozbiornikco" >
+		
+		</div>
+	
+
+</div>
+	</div>
+	</div>
+
+
+	<div class="obramowaniamodernizowane" style="border: 2px solid #DB710D;">
+	<div class="center">
+		<p2>Rodzaj źródła do przygotowania cwu</p2>
+	</div>
+	<div class="obramowaniamodernizowane1" style="border: 2px solid #DB710D;">
+
+	<p3> Przed modernizacją:</p3>
+	<div class="obramowaniamodernizowane2" style="border: 2px solid #DB710D;">
+	
+	
+		<div id="1rodzajcwu">
+			<label for="rodzajcwu">Rodzaj źródła do przygotowania ciepłej wody użytkowej: </label>
+			  <select id="rodzajcwu" name="rodzajcwu">
+				<option value="cwupiecstarygazowy">Piec stary gazowy sprzed 1980 (bojler) η=0,40</option>
+				<option value="cwustarygazowy2000" selected>Piec stary gazowy sprzed 2000 η=0,65</option>
+				<option value="cwunowygazowy">Piec nowy gazowy niekondensacyjny η=0,83</option>
+				<option value="cwupiecgazowykondensacyjny" >Piec gazowy kondensacyjny η=0,85</option>
+				<option value="cwupodgrzewaczelektryczny">Podgrzewacz elektryczny η=0,96</option>
+				<option value="cwupowietrznapompacieplacwu">Powietrzna pompa ciepła η=2,6</option>
+				<option value="cwugruntowapompaciepla">Gruntowa pompa ciepła η=3,0</option>
+				<option value="cwugazowapompaciepla">Gazowa pompa ciepła η=1,3</option>
+				<option value="cwuwezelcieplny">Węzeł ciełowniczy η=0,98</option>
+			  </select>
+		</div>
+		
+		<div id="rodzajcwuprzedzatwierdz"></div>
+	
+				
+	</div>
+
+	<p3> Po modernizacji:</p3>
+	<div class="obramowaniamodernizowane2" style="border: 2px solid #DB710D;">
+	
+		<div id="2rodzajcwu">
+			
+<label for="21rodzajcwu">Rodzaj źródła ciepła do przygotowania ciepłej wody użytkowej: </label><select id="21rodzajcwu" name="21rodzajcwu"><option value="cwupiecstarygazowy">Piec stary gazowy sprzed 1980 (bojler) η=0,40</option><option value="cwustarygazowy2000" selected>Piec stary gazowy sprzed 2000 η=0,65</option><option value="cwunowygazowy">Piec nowy gazowy niekondensacyjny η=0,83</option><option value="cwupiecgazowykondensacyjny" >Piec gazowy kondensacyjny η=0,85</option><option value="cwupodgrzewaczelektryczny">Podgrzewacz elektryczny η=0,96</option><option value="cwupowietrznapompacieplacwu">Powietrzna pompa ciepła η=2,6</option><option value="cwugruntowapompaciepla">Gruntowa pompa ciepła η=3,0</option><option value="cwugazowapompaciepla">Gazowa pompa ciepła η=1,3</option><option value="cwuwezelcieplny">Węzeł ciełowniczy η=0,98</option></select>
+		
+	
+	</div>
+	
+	<div id="rodzajcwupozatwierdz"></div>
+
+	</div>
+	</div>
+	</div>
+
+
+
+</div>
+
+
+</section >
+
+<section id="przyciskoblicz">
+
+
+<div class="flex-container">
+
+<div class="oblicz">
+		<div  id="obliczcale">Ostatni krok - Oblicz
+		</div>
+</div>
+</div>
+
+</section>
+
+<section id="wynikiobliczen">
+	
+<h2> Wyniki obliczeń </h2>
+
+
+<div class="flex-container">
+
+	<div class="obramowanianiebieskie" >
+<div class="zewmodernizowanemale">
+	
+	<p4>Różnica zużycia energii:</p4>
+	<p>Zmniejszenie zapotrzebowania na energię końcową na potrzeby ogrzewania oraz podgrzania wody:</p> <div id="wynik12"><div class="p5">0 </div></div> <p> kWh na rok </p> 
+				<div id="wynik12GJ"><div class="p5">0 </div> </div><p> GJ na rok</p>
+	</div>
+</div>
+	<div class="obramowanianiebieskie">
+<div class="zewmodernizowanemale">
+	<p4>Różnica kosztów ogrzewania:</p4>
+	<p>Zmniejszenie średniorocznych kosztów na potrzeby ogrzewania oraz podgrzania wody:</p> <div id="wynik14"><div class="p5">0 </div></div><p> zł rocznie </p>
+	
+<div id="kosztypaliwzestawienie" >
+	
+	<div id="kosztpaliwaprzed">
+		<label> Przyjęty jednostkowy koszt paliwa do CO przed modernizacją: <input type="number" id="kosztcoprzed" name="kosztcoprzed" step="0.01" value="0"> zł/kWh</label>
+	</div>
+	
+	<div id="kosztpaliwaprzedcwu">
+		<label> Przyjęty jednostkowy koszt paliwa do CWU przed modernizacją: <input type="number" id="kosztcwuprzed" name="kosztcwuprzed" step="0.01" value="0"> zł/kWh</label>
+	</div>
+
+	
+	<div id="kosztpaliwapo">
+		<label> Przyjęty jednostkowy koszt paliwa do CO po modernizacji: <input type="number" id="kosztcopo" name="kosztcopo" step="0.01" value="0"> zł/kWh</label>
+		
+	</div>
+
+	<div id="kosztpaliwapocwu">
+		<label> Przyjęty jednostkowy koszt paliwa do CWU po modernizacji: <input type="number" id="kosztcwupo" name="kosztcwupo" step="0.01" value="0"> zł/kWh</label>
+		
+	</div>
+
+</div>	
+	
+</div>
+	</div>
+	
+	<div class="obramowanianiebieskie" >
+<div class="zewmodernizowanemale">
+	<p4>Różnica emisji CO<sub>2</sub>:</p4>
+	
+	<p>Redukcja średniorocznej emisji CO<sub>2</sub> do atmosfery:</p> <div id="wynik15"><div class="p5">0 </div></div><p> ton rocznie</p>
+	</div>
+</div>
+</div>
+
+<div class="flex-container">
+	
+	
+<div class="zewmodernizowane">
+	<div class="obramowanianiebieskie">
+	<p2>Przed modernizacją:</p2>
+
+	<table >
+	
+	<tr>
+		<td> Współczynnik przenikania ścian U przed modernizacją: </td>  <td class="tabela2"> <div id="Uscian">0</div>  </td> <td> W/(m<sup>2</sup>K) </td>
+	</tr>
+	
+	<tr>
+		<td> Współczynnik przenikania dachu U przed modernizacją: </td>  <td class="tabela2"> <div id="Udachu">0</div>  </td> <td>  W/(m<sup>2</sup>K) </td>
+	</tr>
+	
+	<tr>
+		<td> Współczynnik przenikania podłogi U przed modernizacją: </td>  <td class="tabela2"> <div id="Upodlogi">0</div> </td> <td> W/(m<sup>2</sup>K) </td>
+	</tr>
+
+	<tr>
+		<td> Jednostkowe zapotrzebowanie na energię końcową &nbsp; na potrzeby ogrzewania oraz podgrzania wody: </td>  <td class="tabela2"> <div id="wynik1">0</div> </td>
+		<td> kWh/m<sup>2</sup> </td>
+	</tr>
+
+	<tr>
+		<td rowspan="2"> Zapotrzebowanie na energię końcową na potrzeby ogrzewania oraz podgrzania wody: </td>  <td class="tabela2"> <div id="wynik2">0</div> </td>
+		<td> kWh na rok </td>
+	</tr>
+	
+	<tr>
+		  <td class="tabela2"> <div id="wynik2GJ">0</div> </td><td> GJ na rok</div> </td>
+	</tr>
+
+	<tr>
+		<td> Średnioroczne koszty na potrzeby ogrzewania oraz podgrzania wody: </td>  <td class="tabela2"> <div id="wynik4">0</div> </td><td> zł rocznie </td>
+	</tr>
+
+	<tr>
+		<td> Średnioroczna emisja CO<sup>2</sup> do atmosfery: </td>  <td class="tabela2"> <div id="wynik5">0</div> </td><td> ton rocznie </td>
+	</tr>	
+	
+	</table>
+
+
+	</div>
+</div>
+	
+<div class="zewmodernizowane">
+	<div class="obramowanianiebieskie">
+	<p2>Po modernizacji:</p2>
+	
+	
+		<table >
+	
+	<tr>
+		<td> Współczynnik przenikania ścian U po &nbsp;&nbsp;&nbsp; modernizacji: </td>  <td class="tabela2"> <div id="Uscianpo">0</div>  </td> <td> W/(m<sup>2</sup>K) </td>
+	</tr>
+	
+	<tr>
+		<td> Współczynnik przenikania dachu U po &nbsp;&nbsp;&nbsp; modernizacji: </td>  <td class="tabela2"> <div id="Udachupo">0</div>  </td> <td> W/(m<sup>2</sup>K) </td>
+	</tr>
+	
+	<tr>
+		<td> Współczynnik przenikania podłogi U po modernizacji: </td>  <td class="tabela2"> <div id="Upodlogipo">0</div>  </td> <td> W/(m<sup>2</sup>K) </td>
+	</tr>
+
+	<tr>
+		<td> Jednostkowe zapotrzebowanie na energię końcową na potrzeby ogrzewania oraz podgrzania wody: </td>  <td class="tabela2"> <div id="wynik6">0</td><td> kWh/m<sup>2</sup></div> </td>
+		
+	</tr>
+
+	<tr>
+		<td rowspan="2"> Zapotrzebowanie na energię końcową na potrzeby ogrzewania oraz podgrzania wody: </td>  <td class="tabela2"> <div id="wynik7">0</td><td> kWh na rok</div> </td>
+	</tr>
+	
+	<tr>
+		  <td class="tabela2"> <div id="wynik7GJ">0 </td><td> GJ na rok</div> </td>
+	</tr>
+
+	<tr>
+		<td> Średnioroczne koszty na potrzeby ogrzewania oraz podgrzania wody: </td>  <td class="tabela2"> <div id="wynik9">0</div> </td><td> zł rocznie </td>
+	</tr>
+
+	<tr>
+		<td> Średnioroczna emisja CO<sup>2</sup> do atmosfery: </td>  <td class="tabela2"> <div id="wynik10">0</div> </td><td> ton rocznie </td>
+	</tr>	
+	
+	</table>
+	
+
+	</div>
+</div>
+	
+
+</section>
+
+
+</article>
+</main>
+
+
+<footer>
+<div id="footer">
+<p>Wszystkie prawa zastrzeżone. All rights reserved. &copy; 2020-<span id="data_rok"></span> Author: Wojciech Kłoszewski. Created with HTML5, CSS3, JS6 </p>
+
+<script>
+const d = new Date();
+document.getElementById("data_rok").innerHTML = d.getFullYear();
+
+document.getElementById("obliczcale").addEventListener("click", obliczenia);
+document.getElementById("obliczwstepne").addEventListener("click", unhide);
+document.getElementById("obliczwstepne1").addEventListener("click", hide);
+
+
+</script>
+
+<div id="1wynikQwodaEK" hidden></div>
+<div id="1wyniknQwodaEK" hidden></div>
+<div id="1wynikEk_calkowite" hidden></div>
+<div id="1wyniknEk_calkowite" hidden></div>
+
+</div>
+</footer>
+
+</body>
+
+</html>

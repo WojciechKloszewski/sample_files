@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<title> Termomodernizacja budynku </title>
+<meta name="description" content="Na stronie internetowej znajduje się kalkulator dotyczący zmniejszenia zużycia energii w wyniku termomodernizacji budynku. Kalkulator stworzony został dla celów edukacyjnych"/>
+<meta name="keywords" content="termomodernizacja, audyt budynku, kalkulator energetyczny"/>
+<meta name="author" content="WK"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="energetyka.css" type="text/css"/>
+<script type="text/javascript" src="energetyka.js"></script>
+
+</head>
+
+<body onload="wczytaj()">
+
+
+<header id="header">
+
+
+<div id="naglowek">
+
+
+<div class="flex-container" >
+	
+<div id="zdjecieheader">
+<img src="domenerg.png"/>
+</div>
+
+<div id="danewstepneheader">	
+
+<h1> EKO - MODERNIZACJA</h1>
+<h1> Dom jednorodzinny przyjazny środowisku</h1> 
+
+</div>
+
+</div>
+
+</div>
+
+	
+	
+	
+</header>
+
+<nav id="nav">
+<div class="flex-container">
+
+<a href="kalkulator-termomodernizacja" >Kalkulator</a>
+<a href="https://wojklos.epizy.com/oze/kalkulator-oze" >Dobór OZE</a>
+<a href="kalkulator-metodologia" >Metodologia</a>
+<a href="kalkulator-autor" id="a">O autorze</a>
+
+</div>
+</nav>
+
+<main>
+
+<article>
+
+<section id="danedoobliczen">
+
+<h3> &#9997; O autorze </h3> 
+
+<div class="tekstwstepny">
+
+<div id="fotka">
+<img src="fotka.jpg" />
+
+
+<div class="author"><p8> Nazywam się Wojciech Kłoszewski.</p8> </div>
+<div class="author"><p8> Absolwent Politechniki Gdańskiej, mgr inż. kierunku Energetyka.  </p8> </div>
+
+</div>
+
+<div class="author"><p8> Od pewnego czasu zaczynam powoli hobbistycznie wgłębiać się w temat tworzenia stron internetowych. Postanowiłem połączyć nieco wiedzy kierunkowej z nowo zdobywaną na temat "komputerowych krzaków". Stąd pomysł na kalkulator termomodernizacyjny oraz doboru instalacji OZE, który może być pomocny dla osoby planującej dokonanie modernizacji swojego domu.   </p8> </div>
+
+
+</div>
+
+
+
+</section>
+</article>
+</main>
+
+
+
+<footer>
+<div id="footer">
+<p>Wszystkie prawa zastrzeżone. All rights reserved. &copy; 2020-<span id="data_rok"></span> Author: Wojciech Kłoszewski. Created with HTML5, CSS3, JS6 </p>
+
+<script>
+const d = new Date();
+document.getElementById("data_rok").innerHTML = d.getFullYear();
+</script>
+
+</body>
+
+</html>
