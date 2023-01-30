@@ -1,0 +1,1805 @@
+<!DOCTYPE HTML>
+
+<html lang="pl">
+
+<head>
+<meta charset="utf-8"/>
+<title> Eko modernizacja </title>
+<meta name="description" content="Na stronie internetowej znajdują się informacje dotyczące doboru odnawialnych źródeł energii do domu jednorodzinnego"/>
+<meta name="keywords" content="OZE, dobór OZE, kalkulator energetyczny"/>
+<meta name="author" content="WK"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="oze.css" type="text/css"/>
+<script type="text/javascript" src="oze.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="jquery.scrollTo.min.js"></script>
+
+	
+
+<script>
+
+	jQuery(function($)
+	{
+	
+	$.scrollTo(0);
+
+	$('.scrollup').click(function() { $.scrollTo($('body'), 1000); });
+	}
+		);
+		
+	//pokaż podczas przewijania
+		$(window).scroll(function()
+		{
+		//jeżeli funkcja scroll ma wartość ponad 300 pikseli od góry wówszas pojawiaj się, w przeciwnym wypadku zniknij
+		
+			if($(this).scrollTop()>100) $('.scrollup').fadeIn();
+			else $('.scrollup').fadeOut();		
+		}
+		);
+
+</script>
+
+
+</head>
+
+<body>
+
+<a href="#" class="scrollup"></a>
+
+<header  id="header">
+	<!--
+	<div id="version" style="text-align: right">
+	<a href="https://wojklos.epizy.com/oze/kalkulator-oze" "><p2>Wersja polska</p2></a> / <a href="https://wojklos.epizy.com/RES/RES-calculator" ><p2>English version</p2></a>
+	</div>
+	-->
+	<div id="centrowanie_tytulu">
+		<div class="flex-container" >			
+			<div id="zdjecieheader">
+				<img src="domenergpanel.png"/>
+			</div>
+
+			<div id="danewstepneheader">	
+				<h1> EKO - MODERNIZACJA</h1>
+			</div>
+		</div>
+		<h1> Dom jednorodzinny przyjazny środowisku</h1> 
+	</div>	
+</header>
+
+<nav id="nav" class="flex-container">
+	<a href="#" onclick="startowawidac()" >Strona startowa</a>
+	<a href="#" onclick="fotowoltaikawidac()" >Dobór instalacji fotowoltaicznej</a>
+	<a href="#" onclick="kolektorwidac()">Dobór kolektora słonecznego</a>
+	<a href="#" onclick="pompawidac()">Dobór pompy ciepła</a>
+	<a href="https://wojklos.com.pl/modernizacjadomu/kalkulator-termomodernizacja" >Termomodernizacja domu</a>
+	<a href="#" onclick="praktykiwidac()">Dobre praktyki</a>
+	<a href="#" onclick="oautorzewidac()">O autorze</a>
+</nav>
+
+
+<main>
+
+<article>
+
+<section id="start">
+<div class="flex-container">
+
+<h3>Nowoczesny dom to niskoenergetyczny dom</h3>
+
+
+
+<div class="karta">
+<h2> Dlaczego warto modernizować? </h2>
+<div class="startowa">
+<img src="narzedzia.png" class="obrazek"  />
+<p1>Obecnie temat ochrony środowiska oraz oszczędności energii jest szeroko poruszany niemalże wszędzie i nie bez powodu. Strata energii to wyrzucone pieniądze i wyższa emisja dwutlenku węgla i innych szkodliwych gazów do atmosfery. Energochłonny dom przyczynia się do wzrostu efektu cieplarnianego i drenażu portfeli. Mając nawet stary budynek jednorodzinny ciężko jest wprawdzie osiągnąć stan niskoenergetyczny, ale do pewnego stopnia hamujemy zbędną emisję CO<sub>2</sub> oraz wyciek złotówek. </p1>
+</div>
+</div>
+<div class="karta">
+<h2> Opłacalność? </h2>
+<div class="startowa">
+<img src="swinka.png" class="obrazek"  />
+<p1>Instalacje kosztują - to prawda, ale długofalowo nastepuje oszczędność energii i po prostu to się opłaca - dla środowiska, zdrowia, domowego budżetu. Biorąc pod uwagę krótki czas, wydatek kilkunastu lub kilkudziesięciu tysięcy złotych wydaje się bez sensu. Prosty okres zwrotu 10 lat? - szkoda zachodu. Ile jednak człowiek mieszka w danym miejscu? 20-30 lat a niekiedy całe życie. Energia drożeje. Awaria sieci i nie ma prądu - nastawiamy zegarki elektroniczne na nowo. Przy własnym źródle zasilania sprawa wygląda inaczej. Dziś 10 lat, ale czy 20 lat temu cena 1 kWh energii elektrycznej wynosiła ponad 60gr? Nie, było to około 35gr. A jeśli za kolejne 20 lat będzie wynosić ponad 1.5 zł? W wielu przypadkach żywotność paneli fotowoltaicznych czy kolektorów to ponad 30 lat. Warto myśleć do przodu bo w dłuższej perspektywie - to się po prostu opłaca. </p1>
+</div>
+</div>
+<div class="karta">
+<h2> Czego można się dowiedzieć ze strony? </h2>
+<div class="startowa">
+<img src="kalkulator.png" class="obrazek"  />
+<p1>Na stronie internetowej znajdują się podstawowe informacje dotyczące najcześciej stosowanych technologii odnawialnych źródeł energii (OZE) instalowanych w budynkach jednorodzinnych wraz z najważniejszą częścią czyli prostymi kalkulatorami doboru OZE. Po podaniu kilku podstawowych informacji można otrzymać informacje jakie wstepne rozwiązania byłyby odpowiednie dla podanych warunków oraz potencjalne oszczędności. Podobnie wygląda kwestia ocielenia domu po wybraniu opcji termomodernizacji. Poklikać można także z ciekawości.</p1>
+</div>
+</div>
+<div class="startowa">
+<br />
+<p1>Należy pamiętać, że obliczenia mają jedynie charakter szacunkowy, zaś kalkulatory mają wyłącznie charakter edukacyjny i nie mogą być wykorzystywane do celów komercyjnych zarówno w cześci jak i w całości © </p1>
+</div>
+
+
+
+</div>
+</div>
+</section>
+
+<section id="fotowoltaika" >
+
+<h3> Instalacja fotowoltaiczna </h3> 
+
+
+
+<div class="flex-container">
+
+<div class="karta">
+
+<div class="flex-container">
+
+<div>
+<div class="overlay">
+<img class="fotorozmiar" src="fotowoltaika.jpg"/>
+<p class="link">Osada solarna w Freiburgu, Niemcy.<br /> źródło: wikipedia.org</p>
+</div>
+</div>
+
+<div class="startowa1">
+<p1>Instalacja fotowoltaiczna - rodzaj instalacji w której następuje przemiana (konwersja) energii promieniowania słonecznego (światła) w energię elektryczną w wyniku zjawiska fotowoltaicznego. Instalacja składa się z półprzewodnikowych modułów połączonych ze sobą. Fotoogniwa są stosowane przede wszystkim jako trwałe i niezawodne źródła energii w elektrowniach słonecznych, kalkulatorach, zegarkach, plecakach, sztucznych satelitach, samochodach z napędem hybrydowym, a także w automatyce – jako czujniki fotoelektryczne i fotodetektory w fotometrii. </p1>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<h2> Kalkulator doboru instalacji fotowoltaicznej</h2>
+
+
+<div class="flex-container">
+
+<div id="danedoobliczenzew">
+<div id="obramowaniazielone">
+<div class="danedoobliczen">
+
+<p2>Podaj dane do obliczeń:</p2>
+
+	 <form>
+
+
+	<div class="flex-containerleft" >
+
+	<div id="liczbaosobzew" class="widthtable"> 
+
+		Liczba osób użytkująca budynek jednorodzinny &nbsp;
+
+	</div> 
+
+	<div id="liczbaosob">
+				<label><input type="number" id="liczbosob" name="liczbosob" value="4"></label>
+		</div>
+
+	</div> 
+
+	<div class="flex-containerleft" >
+
+	<div id="czyuzytkowanyoszczedniezew" class="widthtable"> 
+
+		Czy w budynku jest oszczędzana energia 
+
+	</div> 
+
+	<div id="czyuzytkowanyoszczednie">
+		NIE &nbsp; &nbsp; &nbsp; 
+		<div class="container">
+		  <input type="checkbox" name="czyoszczednie" id="czyoszczednie" value="oszczednie">
+		  <label for="czyoszczednie"><span class="checkbox">.</span></label>
+	   </div> 
+	</div>
+	<div>TAK</div>
+	</div> 
+
+	<div class="flex-containerleft" >
+
+	<div id="zuzytaenergiarocznazew" class="widthtable"> 
+
+	Roczne zużycie energii w gospodarstwie domowym &nbsp;
+
+	</div> 
+
+	<div id="1zuzytaenergiaroczna">
+				<label><input type="number" id="zuzytaenergiaroczna" name="zuzytaenergiaroczna" value="2625"></label>
+		</div>
+	<div> &nbsp; kWh rocznie</div>
+	</div> 
+
+	<div class="flex-containerleft" >
+
+	<div id="mocmoduluzew" class="widthtable"> 
+
+	Moc pojedynczego modułu fotowoltaicznego 
+	 </div>	
+	 
+		<div id="mocmodulu"> 
+			 <div class="container">
+			  <input type="radio" name="modulmoc" id="modulmoc250" value="250">
+			  <label for="modulmoc250"><span class="radio">250</span></label>
+			</div>
+			<div class="container">
+			  <input type="radio" name="modulmoc" id="modulmoc300" value="300" checked>
+			  <label for="modulmoc300"><span class="radio">300</span></label>
+			</div>
+			<div class="container">
+			  <input type="radio" name="modulmoc" id="modulmoc350" value="350">
+			  <label for="modulmoc350"><span class="radio">350</span></label>
+			</div>
+		</div>	
+		
+		<div> &nbsp; [W] </div>
+
+	</div>	
+
+
+	<div class="flex-containerleft" >
+
+	<div id="nachyleniedachuzew" class="widthtable"> 
+
+	Kąt nachylenia dachu &nbsp;
+	 </div>	
+	 
+	<div id="1nachyleniedachu"> 
+
+		<label for="nachyleniedachu"></label>
+				  <select id="nachyleniedachu" name="nachyleniedachu" >
+					<option value="0">0</option>
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="30">30</option>
+					<option value="40" selected>40</option>
+					<option value="50">50</option>
+					<option value="60">60</option>
+					<option value="70">70</option>
+					<option value="80">80</option>
+					<option value="90">90</option>
+				  </select>
+
+	 </div>	
+		
+		<div> &nbsp;<sup>o</sup> </div>
+
+	</div>	
+
+	<div class="flex-containerleft" >
+
+	<div id="odchyleniebudynkuzew" class="widthtable"> 
+
+	Odchylenie budynku od południa &nbsp;
+	 </div>	
+	 
+	<div id="odchyleniebudynku"> 
+
+		<label for="odchyleniedachu"></label>
+				  <select id="odchyleniedachu" name="odchyleniedachu" >
+					<option value="1">Zachód 90</option>
+					<option value="2">Południowy-zachód 60</option>
+					<option value="3">Południowy-zachód 30</option>
+					<option value="4" selected>Południe 0</option>
+					<option value="5">Południowy-wschód 30</option>
+					<option value="6">Południowy-wschód 60</option>
+					<option value="7">Wschód 90</option>
+				  </select>
+
+	 </div>	
+		
+		<div> &nbsp;<sup>o</sup> </div>
+
+	</div>	
+	</br></br></br>
+<div class="flex-container" >
+	<div id="oblicz" class="przycisk_oblicz">Oblicz</div> 
+</div>		  
+	</form> 
+	
+</div>
+</div>
+</div>
+
+<div id="danedoobliczenzew">
+<div id="obramowaniazielone">
+<div class="danedoobliczen">
+
+	<p2>Wyniki obliczeń:</p2>
+
+
+<div class="flex-containerleft" >
+
+	<div id="doborfotowoltaikamoczew" class="widthtable"> 
+
+		Szacunkowa moc wstępnego doboru instalacji  &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikfotowoltaikamoc">0</div>
+		
+	</div>
+
+<div> &nbsp; kWp</div>
+	
+</div>
+		
+  
+<div class="flex-containerleft" >
+
+	<div id="iloscmodulowzew" class="widthtable"> 
+
+		Ilość modułów &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikiloscmodulow">0</div>
+		
+	</div>
+
+<div> &nbsp; </div>
+	
+</div>
+
+<div class="flex-containerleft" >
+
+	<div id="powierzchniapanelizew" class="widthtable"> 
+
+		Szacunkowa powierzchnia paneli fotowoltaicznych &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikpowierzchniapaneli">0</div>
+		
+	</div>
+
+<div> &nbsp; m<sup>2</sup> </div>
+	
+</div>
+
+<div class="flex-containerleft" >
+
+	<div id="doborfotowoltaikaenergiazew" class="widthtable"> 
+
+		Szacunkowa roczna produkcja energii z instalacji &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikfotowoltaikaenergia">0</div>
+		
+	</div>
+
+<div> &nbsp; kWh rocznie</div>
+	
+</div>
+
+<div class="flex-containerleft" >
+
+	<div id="wartoscenergiizew" class="widthtable"> 
+
+		Szacunkowa roczna wartość wyprodukowanej energii &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikwartoscenergii">0</div>
+		
+	</div>
+
+<div> &nbsp; zł rocznie </div>
+
+</div>
+
+<div class="flex-containerleft" >
+
+	<div id="wartosccenergiizew" class="widthtable"> 
+
+		Przyjęta jednostkowa cena 1 kWh energii elektrycznej &nbsp;
+
+	</div> 
+
+	<div id="wynikwartosccenergii">
+	
+	<label><input type="number" id="cenaenergiielektrycznej" name="cenaenergiielektrycznej" step="0.01" value="0.6"></label>
+	
+	</div>
+		
+
+<div> &nbsp; zł/kWh </div>
+
+	
+</div>
+
+<div class="flex-containerleft" >
+
+	<div id="wynikkosztinstalacjipvzew" class="widthtable"> 
+
+		Szacunkowy koszt instalacji (2020) &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikkosztinstalacjipv">0</div>
+		
+	</div>
+
+<div> &nbsp; zł  </div>
+
+</div>
+
+<div class="flex-containerleft" >
+
+	<div id="wynikspbtinstalacjipvzew" class="widthtable"> 
+
+		Szacunkowa wartość SPBT &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikspbtinstalacjipv">0</div>
+		
+	</div>
+
+<div> &nbsp; lata  </div>
+
+</div>
+		
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="flex-container">
+
+
+<div id="danedoobliczenzew">
+<div id="obramowaniazielone">
+
+
+	<p2>Wykres szacunkowej produkcji energii:</p2>
+
+<div class="flex-container1">
+
+
+<div id="1" style="width: 80%; height: auto; margin-top: 50px;">
+
+<canvas id="wykres" width="500" height="300" >
+Your browser does not support the HTML canvas tag.</canvas>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+<section id="kolektor">
+
+
+
+<h3> Kolektor słoneczny </h3> 
+
+<div class="flex-container">
+
+<div class="karta">
+
+<div class="flex-container">
+
+<div>
+<div class="overlay">
+<img class="fotorozmiar" src="kolektor.jpg"/>
+<p class="link">Dwie instalacje kolektorów słonecznych.<br /> źródło: wikipedia.org</p>
+</div>
+</div>
+
+
+<div class="startowa1">
+<p1>Kolektor słoneczny - urządzenie do konwersji energii promieniowania słonecznego na ciepło. Energia słoneczna docierająca do kolektora zamieniana jest na energię cieplną nośnika ciepła, którym może być ciecz (glikol, woda) lub gaz (np. powietrze). Popularne typy kolektorów to cieczowe kolektory płaskie i próżniowe. Kolektory słoneczne najpowszechniej wykorzystywane są do podgrzewania wody użytkowej, podgrzewania wody basenowej, wspomagania centralnego ogrzewania, chłodzenia budynków, ciepła technologicznego. </p1>
+</div>
+
+</div>
+</div>
+</div>
+
+<h2> Kalkulator doboru kolektora słonecznego</h2>
+
+<div class="flex-container">
+
+<div id="danedoobliczenzew">
+<div id="obramowaniazielone">
+<div class="danedoobliczen1">
+
+<p2>Podaj dane do obliczeń:</p2>
+
+	 <form>
+
+
+	<div class="flex-containerleft" >
+
+	<div id="liczbaosobzew1" class="widthtable"> 
+
+		Liczba osób użytkująca budynek jednorodzinny &nbsp;
+
+	</div> 
+
+	<div id="liczbaosob1">
+				<label><input type="number" id="liczbosob1" name="liczbosob1" value="4"></label>
+		</div>
+
+	</div> 
+
+
+	<div class="flex-containerleft" >
+
+	<div id="zuzwodyzew1" class="widthtable"> 
+
+		Poziom zużycia ciepłej wody na osobę &nbsp;
+
+	</div> 
+	
+	<div id="zuzwodyselect1">
+		<label for="zuzwodyselect11"></label>
+				  <select id="zuzwodyselect11" name="zuzwodyselect11" >
+					<option value="1" selected>Niski</option>
+					<option value="2">Średni</option>
+					<option value="3">Wysoki</option>
+				  </select>
+	
+	</div>
+	
+	<div id="wodazatwierdz"></div>
+
+	<div id="zuzwodyliczba1">
+				<label><input type="number" id="zuzwody11" name="zuzwody11" value="35"></label>
+		</div>
+		<div> &nbsp; dm<sup>3</sup> </div>
+
+	</div> 
+
+	<div class="flex-containerleft" >
+
+	<div id="czypompacyrkulacyjnazew" class="widthtable"> 
+
+		Czy w budynku znajduje się pompa cyrkulacyjna   
+
+	</div> 
+
+	<div id="czypompacyrkulacyjna">
+		NIE &nbsp; &nbsp; &nbsp; 
+		<div class="container">
+		  <input type="checkbox" name="czypompacyrkulacyjna11" id="czypompacyrkulacyjna11" value="cyrkulacja">
+		  <label for="czypompacyrkulacyjna11"><span class="checkbox">.</span></label>
+	   </div> 
+	</div>
+	<div>TAK</div>
+	</div> 
+	
+	
+		<div class="flex-containerleft" >
+
+	<div id="pokryciezapotrzebowaniazew1" class="widthtable"> 
+
+	Stopień pokrycia zapotrzebowania ciepłej wody przez kolektor &nbsp;
+	 </div>	
+	 
+	<div id="1pokryciezapotrzebowania1"> 
+
+		<label for="pokryciezapotrzebowania1"></label>
+				  <select id="pokryciezapotrzebowania1" name="pokryciezapotrzebowania1" >
+					<option value="65" selected>65</option>
+					<option value="50">50</option>
+					<option value="40">40</option>
+					<option value="30">30</option>
+				  </select>
+
+	 </div>	
+		
+		<div> &nbsp;% </div>
+
+	</div>	
+	
+	
+
+	<div class="flex-containerleft" >
+
+	<div id="nachyleniedachuzew1" class="widthtable"> 
+
+	Kąt nachylenia dachu &nbsp;
+	 </div>	
+	 
+	<div id="1nachyleniedachu1"> 
+
+		<label for="nachyleniedachu1"></label>
+				  <select id="nachyleniedachu1" name="nachyleniedachu1" >
+					<option value="0">0</option>
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="30">30</option>
+					<option value="40" selected>40</option>
+					<option value="50">50</option>
+					<option value="60">60</option>
+					<option value="70">70</option>
+					<option value="80">80</option>
+					<option value="90">90</option>
+				  </select>
+
+	 </div>	
+		
+		<div> &nbsp;<sup>o</sup> </div>
+
+	</div>	
+
+	<div class="flex-containerleft" >
+
+	<div id="odchyleniebudynkuzew1" class="widthtable"> 
+
+	Odchylenie budynku od południa &nbsp;
+	 </div>	
+	 
+	<div id="odchyleniebudynku1"> 
+
+		<label for="odchyleniedachu1"></label>
+				  <select id="odchyleniedachu1" name="odchyleniedachu1" >
+					<option value="1">Zachód 90</option>
+					<option value="2">Południowy-zachód 60</option>
+					<option value="3">Południowy-zachód 30</option>
+					<option value="4" selected>Południe 0</option>
+					<option value="5">Południowy-wschód 30</option>
+					<option value="6">Południowy-wschód 60</option>
+					<option value="7">Wschód 90</option>
+				  </select>
+
+	 </div>	
+		
+		<div> &nbsp;<sup>o</sup> </div>
+
+	</div>	
+
+	<div class="flex-containerleft" >
+
+	<div id="kolektorrodzajdotychczaszrodlozew1" class="widthtable"> 
+
+	Rodzaj obecnego źródła ciepła &nbsp;
+	 </div>	
+	 
+	<div id="kolektorrodzajdotychczaszrodlo1"> 
+
+		<label for="kolektorrodzajdotychczaszrodlo11"></label>
+				  <select id="kolektorrodzajdotychczaszrodlo11" name="kolektorrodzajdotychczaszrodlo11" >
+					<option value="1" >Kocioł węglowy</option>
+					<option value="2" selected>Kocioł gazowy</option>
+					<option value="3">Ogrzewanie elektryczne</option>
+					<option value="4">Nowy kocioł na biomasę</option>
+					<option value="5">Pompa ciepła</option>
+				  </select>
+
+	 </div>	
+		
+	<div id="kolektorrodzajzrodlapompazatwierdz"></div>	
+
+	</div>	
+
+	<div class="flex-containerleft" >
+
+	<div id="kolektorkosztogrzewaniadotyczaszrodlozew1" class="widthtable"> 
+
+	Szacunkowy koszt jednostkowy paliwa dotychczasowego źródła ciepła &nbsp;
+	 </div>	
+	 
+	<div id="kolektorkosztogrzewaniadotyczaszrodlo1"> 
+
+	<input type="number" name="kolektorkosztogrzewaniadotyczaszrodlo11" step="0.01" id="kolektorkosztogrzewaniadotyczaszrodlo11" value="0.2">
+
+	 </div>	
+		
+		<div> &nbsp;zł/kWh <br/> czyli </div>
+
+</div>
+
+	<div class="flex-containerleft" >
+
+	<div id="kolektorkosztogrzewaniadotyczaszrodlow1zew1" class="widthtable"> 
+
+	&nbsp;
+	 </div>	
+	 	
+	<div class="p5">
+		<div id="kolektorkosztogrzewaniadotyczaszrodlo111">1.94</div>
+		
+	</div>
+
+<div id="kolektorjednostka"> &nbsp; zł/m<sup>3</sup> </div>
+
+
+
+</div>
+	
+		
+
+<div class="flex-container" >
+	<div id="oblicz1" class="przycisk_oblicz">Oblicz</div> 
+</div>	
+	  
+	</form> 
+	
+</div>
+</div>
+</div>
+
+<div id="danedoobliczenzew">
+<div id="obramowaniazielone">
+<div class="danedoobliczen1">
+
+	<p2>Wyniki obliczeń:</p2>
+
+
+<div class="flex-containerleft" >
+
+	<div id="wynikkolektorpowierzchniazew" class="widthtable"> 
+
+		Wstępnie dobrana powierzchnia absorbera  &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikkolektorpowierzchnia">0</div>
+		
+	</div>
+
+<div> &nbsp; m<sup>2</sup></div>
+	
+</div>
+		
+<div class="flex-containerleft" >
+
+	<div id="wynikdoborzbiornikakolektorzew" class="widthtable"> 
+
+		Dobór wstępny zbiornika akumulacji ciepła  &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikdoborzbiornikakolektor">0</div>
+		
+	</div>
+
+<div> &nbsp; litry [dm<sup>3</sup>]</div>
+	
+</div>  
+
+<div class="flex-containerleft" >
+
+	<div id="wynikdobormockolektorzew" class="widthtable"> 
+
+		Szacunkowa średnioroczna moc kolektora  &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikdobormockolektor">0</div>
+		
+	</div>
+
+<div> &nbsp; W </div>
+	
+</div>  
+
+<div class="flex-containerleft" >
+
+	<div id="wynikdoborenergiakolektorzew" class="widthtable"> 
+
+		Szacunkowa ilość produkowanej energii  &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikdoborenergiakolektor">0</div>
+		
+	</div>
+
+<div> &nbsp; GJ rocznie </div>
+	
+</div>  
+
+
+<div class="flex-containerleft" >
+
+	<div id="wynikkosztykolektorzew" class="widthtable"> 
+
+		Szacunkowy koszt instalacji (2020) &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikkosztykolektor">0</div>
+		
+	</div>
+
+<div> &nbsp; zł </div>
+	
+</div>  
+
+<div class="flex-containerleft" >
+
+	<div id="wynikspbtinstalacjikolektorzew" class="widthtable"> 
+
+		Szacunkowa wartość SPBT &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikspbtinstalacjikolektor">0</div>
+		
+	</div>
+
+<div> &nbsp; lata  </div>
+
+</div>
+
+	
+	</br></br></br></br></br></br></br></br></br></br>
+	
+	
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+<div class="flex-container">
+
+
+<div id="danedoobliczenzew">
+<div id="obramowaniazielone">
+
+
+	<p2>Wykres szacunkowej produkcji energii:</p2>
+
+<div class="flex-container1">
+
+
+<div id="2" style="width: 80%; height: auto; margin-top: 50px;">
+
+<canvas id="wykreskolektor" width="500" height="300" >
+Your browser does not support the HTML canvas tag.</canvas>
+
+</div>
+	
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+
+
+
+</section>
+
+<section id="pompaciepla">
+
+
+
+<h3> Pompa ciepła </h3> 
+
+<div class="flex-container">
+
+<div class="karta">
+
+<div class="flex-container">
+
+
+<div class="overlay">
+<img class="fotorozmiar" src="pompaciepla.jpg"/>
+<p class="link">Przykładowa gruntowa pompa ciepła. <br /> źródło: wikipedia.org</p>
+</div>
+
+
+<div class="startowa1">
+<p1>Pompa ciepła – urządzenie pracujące na podobnej zasadzie jak lodówka. Pobiera ciepło z dolnego źródła np. gleby, stawu, powietrza i oddaje je do górnego źródła ciepła czyli do pomieszczeń znajdujących się w domu. Maszyna cieplna wymuszająca przepływ ciepła z obszaru o niższej temperaturze do obszaru o temperaturze wyższej. Pompa ciepła uzyskuje największe skuteczności energetyczne w połączeniu z ogrzewaniem niskotemperaturowym (ogrzewanie podłogowe). W przypadku budynków starych, gdzie nie nastapiła termomodernizacja obiektu, nie zaleca się stosowania pompy ciepła bez wcześniejszego jego ocieplenia, gdyż sprawność pompy będzie wówczas znikoma i zacznie działać jak "droga grzałka". </p1>
+</div>
+</div>
+</div>
+</div>
+
+<h2> Kalkulator doboru pompy ciepła</h2>
+
+<div class="flex-container">
+
+<div id="danedoobliczenzew">
+<div id="obramowaniazielone">
+<div class="danedoobliczen2">
+
+<p2>Podaj dane do obliczeń:</p2>
+
+	 <form>
+
+
+	<div class="flex-containerleft" >
+
+	<div id="powierzchniabudynkupompazew1" class="widthtable"> 
+
+		Powierzchnia budynku &nbsp;
+
+	</div> 
+
+	<div id="powierzchniabudynkupompa1">
+				<label><input type="number" id="powierzchniabudynkupompa11" name="powierzchniabudynkupompa11" value="150"></label>
+		</div>
+
+	<div> &nbsp;m<sup>2</sup> </div>
+
+	</div> 
+	
+	
+
+
+	<div class="flex-containerleft" >
+
+	<div id="rodzajbudynkupompazew1" class="widthtable"> 
+
+		Rodzaj budynku jednorodzinnego &nbsp;
+
+	</div> 
+	
+	<div id="rodzajbudynkupompaselect1">
+	
+		<label for="rodzajbudynkupompaselect11"></label>
+				  <select id="rodzajbudynkupompaselect11" name="rodzajbudynkupompaselect11" >
+					<option value="1" >dom niemodernizowany od co najmniej 1945</option>
+					<option value="2">dom niemodernizowany od co najmniej 1946-1966</option>
+					<option value="3">dom niemodernizowany od co najmniej 1967-1985</option>
+					<option value="4">dom niemodernizowany od co najmniej 1986-1992</option>
+					<option value="5">dom niemodernizowany od co najmniej 1993-2002</option>
+					<option value="6" selected>dom niemodernizowany od co najmniej 2002-2009</option>
+					<option value="7">dom niemodernizowany od co najmniej 2009-2013</option>
+					<option value="8">dom spełniający warunki techniczne WT od 2014 do 2016</option>
+					<option value="9">dom spełniający warunki techniczne WT od 2017 do 2020</option>
+					<option value="10">dom spełniający warunki techniczne WT od 2021 </option>
+					<option value="11">dom niskoenergetyczny</option>
+				  </select>
+	
+	</div>	
+	
+	<div id="rodzajbudynkupompazatwierdz"></div>
+
+
+	</div> 
+	
+
+	<div class="flex-containerleft" >
+
+	<div id="energiakoncowapompazew" class="widthtable"> 
+
+		Szacunkowe zużycie energii na potrzeby CO budynku
+
+	</div> 
+
+	<div id="energiakoncowapompa">
+
+
+		  <input type="number" name="energiakoncowapompa11" id="energiakoncowapompa11" value="140">
+
+	   </div> 
+	   
+	   <div> &nbsp; kWh/m<sup>2</sup></div>
+	   
+	</div>
+
+		<div class="flex-containerleft" >
+
+	<div id="liczbaosobzew2" class="widthtable"> 
+
+		Liczba osób użytkująca budynek jednorodzinny &nbsp;
+
+	</div> 
+
+	<div id="2liczbaosob">
+				<label><input type="number" id="liczbaosob2" name="liczbaosob2" value="4"></label>
+		</div>
+
+	</div> 
+
+
+	<div class="flex-containerleft" >
+
+	<div id="zuzwodyzew2" class="widthtable"> 
+
+		Poziom zużycia ciepłej wody na osobę &nbsp;
+
+	</div> 
+	
+	<div id="zuzwodyselect2">
+	
+		<label for="zuzwodyselect12"></label>
+				  <select id="zuzwodyselect12" name="zuzwodyselect12" >
+					<option value="1" selected>Niski</option>
+					<option value="2">Średni</option>
+					<option value="3">Wysoki</option>
+				  </select>
+	
+	</div>
+	
+	&nbsp;
+	
+	<div id="wodazatwierdz2"></div>
+
+	<div id="zuzwodyliczba2">
+				<label><input type="number" id="zuzwody12" name="zuzwody12" value="35"></label>
+		</div>
+		<div> &nbsp; dm<sup>3</sup> </div>
+
+	</div>
+	
+	<div class="flex-containerleft" >
+
+	<div id="rodzajpompycieplazew1" class="widthtable"> 
+
+	Typ pompy ciepła &nbsp;
+	 </div>	
+	 
+	<div id="rodzajpompyciepla1"> 
+
+		<label for="rodzajpompyciepla11"></label>
+				  <select id="rodzajpompyciepla11" name="rodzajpompyciepla11" >
+					<option value="1" selected >powietrzna typu powietrze/woda sprężarkowa, napędzana elektrycznie</option>
+					<option value="2">gruntowa typu glikol woda, sprężarkowa napędzana elektrycznie</option>
+					<option value="3">gazowa typu glikol/woda sprężarkowa napędzana gazem</option>
+				  </select>
+
+	 </div>	
+		
+	</div>
+
+
+	<div id="gruntowapompacieplaobliczenia" hidden >	
+
+	<div class="flex-containerleft">
+
+		<div id="rodzajwymiennikapompycieplazew1" class="widthtable"> 
+
+		Rodzaj wymiennika pompy ciepła &nbsp;
+		 </div>	
+		 
+		<div id="rodzajwymiennikapompyciepla1"> 
+
+			<label for="rodzajwymiennikapompyciepla11"></label>
+					  <select id="rodzajwymiennikapompyciepla11" name="rodzajwymiennikapompyciepla11" >
+						<option value="1">pionowy</option>
+						<option value="2" selected>poziomy</option>
+					  </select>
+
+		 </div>	
+			
+		<div id="rodzajwymiennikapompycieplazatwierdz"></div>	
+
+	</div>
+<div id="odwiertselect">
+	<div class="flex-containerleft">
+
+		<div id="iloscodwiertowpompycieplazew1" class="widthtable"> 
+
+		Ilość odwiertów pionowych &nbsp;
+		 </div>	
+		 
+		<div id="iloscodwiertowpompyciepla1"> 
+
+					<label><input type="number" id="iloscodwiertowpompyciepla11" name="iloscodwiertowpompyciepla11" value="1"></label>
+			</div>
+
+		
+			
+		<div id="rodzajzrodlapompazatwierdz"></div>	
+
+	</div>
+</div>
+
+<div id="rodzajgruntupompacieplaselect">
+	<div class="flex-containerleft">
+
+		<div id="rodzajgruntupompycieplazew1" class="widthtable"> 
+
+		Rodzaj gruntu na sondy poziome &nbsp;
+		 </div>	
+		 
+		<div id="rodzajgruntupompyciepla1"> 
+
+			<label for="rodzajgruntupompyciepla11"></label>
+					  <select id="rodzajgruntupompyciepla11" name="rodzajgruntupompyciepla11" >
+						<option value="1">suchy piaszczysty 8W/m2</option>
+						<option value="2" selected>wilgotny piaszczysty 16W/m2</option>
+						<option value="3">wilgotny gliniasty podmokły 32W/m2</option>
+					  </select>
+
+		 </div>	
+			
+		<div id="rodzajgruntupompycieplazatwierdz"></div>	
+
+	</div>
+</div>
+
+</div>
+	
+	
+
+	
+	<div class="flex-containerleft" >
+
+	<div id="rodzajdotychczaszrodlozew1" class="widthtable"> 
+
+	Rodzaj obecnego źródła ciepła &nbsp;
+	 </div>	
+	 
+	<div id="rodzajdotychczaszrodlo1"> 
+
+		<label for="rodzajdotychczaszrodlo11"></label>
+				  <select id="rodzajdotychczaszrodlo11" name="rodzajdotychczaszrodlo11" >
+					<option value="1" >kocioł węglowy</option>
+					<option value="2" selected>kocioł gazowy</option>
+					<option value="3">ogrzewanie elektryczne</option>
+					<option value="4">Nowy kocioł na biomasę</option>
+				  </select>
+
+	 </div>	
+		
+	<div id="rodzajzrodlapompazatwierdz"></div>	
+
+	</div>	
+
+	<div class="flex-containerleft" >
+
+	<div id="kosztogrzewaniadotyczaszrodlozew1" class="widthtable"> 
+
+	Szacunkowy koszt jednostkowy paliwa dotychczasowego źródła ciepła &nbsp;
+	 </div>	
+	 
+	<div id="kosztogrzewaniadotyczaszrodlo1"> 
+
+	<input type="number" name="kosztogrzewaniadotyczaszrodlo11" step="0.01" id="kosztogrzewaniadotyczaszrodlo11" value="0.2">
+
+	 </div>	
+		
+		<div> &nbsp;zł/kWh <br/> czyli </div>
+
+</div>
+
+	<div class="flex-containerleft" >
+
+	<div id="kosztogrzewaniadotyczaszrodlow1zew1" class="widthtable"> 
+
+	&nbsp;
+	 </div>	
+	 	
+	<div class="p5">
+		<div id="kosztogrzewaniadotyczaszrodlo111">1.94</div>
+		
+	</div>
+
+<div id="jednostka"> &nbsp; zł/m<sup>3</sup> </div>
+
+
+
+</div>
+
+
+<div class="flex-container" >
+	<div id="oblicz2" class="przycisk_oblicz" >Oblicz</div> 
+</div>	
+	  
+	</form> 
+	
+</div>
+</div>
+</div>
+
+<div id="danedoobliczenzew">
+<div id="obramowaniazielone">
+<div class="danedoobliczen2">
+
+	<p2>Wyniki obliczeń:</p2>
+
+
+<div class="flex-containerleft" >
+
+	<div id="wynikpompamoczew" class="widthtable"> 
+
+		Wstępnie dobrana moc pompy ciepła  &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikpompamoc">0</div>
+		
+	</div>
+
+<div> &nbsp; kW </div>
+	
+</div>
+
+<div id="gruntowapompacieplaobliczeniawynik" hidden>	
+
+
+<div id="powierzchniapompacieplaselect">
+	<div class="flex-containerleft" >
+
+		<div id="wynikkolektorpompacieplazew" class="widthtable"> 
+
+			Szacunkowa powierzchnia kolektora poziomego  &nbsp;
+
+		</div> 
+
+
+		<div class="p5">
+
+			<div id="wynikkolektorpompaciepla">0</div>
+			
+		</div>
+
+	<div> &nbsp; m<sup>2</sup> </div>
+		
+	</div> 
+</div>
+
+<div id="glebokoscodwiertupompacieplaselect">
+	<div class="flex-containerleft" >
+
+		<div id="wynikkolektorpionowypompacieplazew" class="widthtable"> 
+
+			Szacunkowa głębokość pojedynczego odwiertu  &nbsp;
+
+		</div> 
+
+
+		<div class="p5">
+
+			<div id="wynikkolektorpionowypompaciepla">0</div>
+			
+		</div>
+
+	<div> &nbsp; m</div>
+		
+	</div>
+</div>	
+
+
+
+
+</div>
+	
+
+
+	
+<div class="flex-containerleft" >
+
+	<div id="wynikpompazuzenergizew" class="widthtable"> 
+
+		Szacunkowe zużycie energii przez pompę ciepła  &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikpompazuzenergi">0</div>
+		
+	</div>
+
+<div> &nbsp; kWh rocznie</div>
+	
+</div>  
+
+<div class="flex-containerleft" >
+
+	<div id="wynikpompakosztenergizew" class="widthtable"> 
+
+		Szacunkowy koszt pracy pompy ciepła (CO+CWU) &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikpompakosztenergi">0</div>
+		
+	</div>
+
+<div> &nbsp; zł rocznie </div>
+	
+</div>  
+
+<div class="flex-containerleft" >
+
+	<div id="wynikpompaobecnekosztyogrzewaniazew" class="widthtable"> 
+
+		Szacunkowy dotychczasowy koszt CO+CWU  &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikpompaobecnekosztyogrzewania">0</div>
+		
+	</div>
+
+<div> &nbsp; zł rocznie </div>
+	
+</div>  
+
+<div class="flex-containerleft" >
+
+	<div id="wynikpompaoszczednoscienergiizew" class="widthtable"> 
+
+		Szacunkowe oszczędności energii z instlacji pompy  &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikpompaoszczednoscienergii">0</div>
+		
+	</div>
+
+<div> &nbsp; zł rocznie </div>
+	
+</div>  
+
+<div class="flex-containerleft" >
+
+	<div id="wynikzmienkosztogrzewaniazew1" class="widthtable"> 
+
+	Przyjęty koszt jednostkowy paliwa do pompy ciepła &nbsp;
+	 </div>	
+	 
+	<div id="wynikzmienkosztogrzewania1"> 
+
+	<input type="number" name="wynikzmienkosztogrzewania11" step="0.01" id="wynikzmienkosztogrzewania11" value="0.6">
+
+	 </div>	
+		
+		<div> &nbsp;zł/kWh  </div>
+
+</div>
+
+<div class="flex-containerleft" >
+
+	<div id="wynikkosztinstalacjipompazew" class="widthtable"> 
+
+		Szacunkowy koszt instalacji (2020) &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikkosztinstalacjipompa">0</div>
+		
+	</div>
+
+<div> &nbsp; zł  </div>
+
+</div>
+
+<div class="flex-containerleft" >
+
+	<div id="wynikspbtinstalacjipompazew" class="widthtable"> 
+
+		Szacunkowa wartość SPBT &nbsp;
+
+	</div> 
+
+
+	<div class="p5">
+
+		<div id="wynikspbtinstalacjipompa">0</div>
+		
+	</div>
+
+<div> &nbsp; lata  </div>
+
+</div>
+
+
+	
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+<div class="flex-container">
+
+
+<div id="danedoobliczenzew">
+<div id="obramowaniazielone">
+
+
+	<p2>Wykres szacunkowego zużycia energii:</p2>
+
+<div class="flex-container1">
+
+
+<div id="3" style="width: 80%; height: auto; margin-top: 50px;">
+
+<canvas id="wykrespompa" width="500" height="300" >
+Your browser does not support the HTML canvas tag.</canvas>
+
+</div>
+	
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+
+
+</section>
+
+<section id="oautorze">
+
+<div id="fotka">
+
+<h3> O autorze </h3> 
+
+
+<div class="flex-container">
+
+
+<div class="obramowanianiebieskie" >
+
+<div>
+<img id="fotka" src="fotka.jpg" />
+</div>
+<div id="dane_osobowe" >
+
+	<p6> Wojciech Kłoszewski</p6> 
+	<br/><p5> Absolwent Politechniki Gdańskiej 
+	<br/> mgr inż. kierunku Energetyka </p5> 
+</div>
+
+</div>
+
+
+<div id="danedoobliczen_autor"style="text-align: justify;">
+
+<h4>Trochę o sobie</h4>
+<p5>Czasem warto poświęcić czas na realizację swoich pomysłów, bo gdy już zostaną wdrożone, cieszy efekt końcowy. Do realizacji celów potrzebna jest wytrwałość.
+Z pewnością wycieczki leśne i pływanie w jeziorze w letnie dni to wielka frajda. W sumie to powinienem być większym optymistą. </p5> 
+
+
+<h4>Pomysł na kalkulator</h4>
+<p5>Energetyka to ciekawy temat. Wiele osób zastanawia się nad modernizacją swojego domu celem obniżenia rachunków za energię. 
+Zachodzą wtedy pytania takie jak: czy opłaca się modernizować? Ile to będzie kosztowało? 
+Czy zaoszczędzę? Stąd pomysł na kalkulator termomodernizacyjny oraz doboru instalacji OZE, który może być pomocny dla osoby planującej dokonanie modernizacji swojego domu.   </p5> 
+
+</div>
+
+</div>
+
+
+
+
+</div>
+
+</section>
+
+<section id="qwertypraktyki">
+
+
+
+<h3>Dobre praktyki podczas modernizacji domu</h3>
+
+<div class="flex-container">
+
+<div>
+
+<div class="flex-container">
+<a href="#C1"><div class="button">Termomodernizacja domu</div></a>
+<a href="#C2"><div class="button">Pompa ciepła &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></a>
+<a href="#C3"><div class="button">Instalacja fotowoltaiczna PV </div></a>
+<a href="#C4"><div class="button">Kolektor słoneczny &nbsp;&nbsp;&nbsp;&nbsp;</div></a>
+</div>
+</br>
+</div>
+
+<div class="flex-container">
+
+<div class="karta">
+
+<h2 id="C1"> Termomodernizacja </h2>
+
+
+
+ <ul>
+    <li><p1>
+	Zgodnie z wytycznymi już od 2021 roku współczynnik przenikania ciepła U dla okien fasadowych nie może przekraczać 0,9 W/m²K, zaś okien dachowych 1,1 W/m²K. Warto sprawdzić czy podano U całego okna a nie tylko ramy lub szyby.
+	</p1></li>
+	
+    <li><p1>
+	W przypadku, jeżeli jest to możliwe należy stosować osadzanie okna w warstwie izolacji czyli w ramach ciepłego montażu okien. Polega na zastosowaniu trzech warstw uszczelniających: środkowej, wewnętrznej i zewnętrznej. Warstwa środkowa to izolacja termiczna. W przeciwnym wypadku zakup energooszczędnych okien nie będzie opłacalną inwestycją ze względu na zbyt dużą ucieczkę ciepła do otoczenia. 
+	</p1></li>
+<li><p1>
+	W przypadku bardzo szczelnych okien może wystąpić zjawisko nadmiernej szczelności budynku. W takiej sytuacji rano jest widoczne wykraplanie się wody na szybach. Z tego względu w ramie okiennej powinny być nawiewniki. Trochę inna sytuacja wygląda w przypadku zastosowania wentylacji mechanicznej sterowanej elektronicznie. 
+</p1></li>
+	<li><p1>
+	W przypadku termomodernizacji bardzo ważne jest znalezienie i wyeliminowanie możliwie dużej ilości mostków cieplnych. Najczęściej mostki cieplne znajdują się w nadprożach, połączeniach, okolicach kominów, miejscach osadzania okien oraz drzwi. Mostki cieplne mogą powodować znaczną ucieczkę ciepła do otoczenia pomimo zastosowania ocielenia budynku. Z tego względu tak ważna jest ich eliminacja.
+</p1></li>
+	<li><p1>
+	Wentylacja mechaniczna nawiewno-wywiewna z rekuperacją umożliwia odzysk ciepła podczas jego wymiany z otoczeniem, dzięki czemu straty wentylacyjne są znacznie mniejsze. Najlepiej aby wentylacja była sterowana elektronicznie na bazie zainstalowanych sensorów mierzących np. stężenie dwutlenku węgla w otoczeniu. 
+</p1></li>
+	<li><p1>
+	Budynki drewniane wymagają odpowiedniej technologii ocieplenia budynków umożliwiającej odprowadzenie pary wodnej migrującej przez przegrody. W przypadku źle zastosowanej izolacji możemy mieć do czynienia z gniciem drewna lub powstawaniem pleśni. 
+</p1></li>
+	<li><p1>
+	Nie wolno mylić wiatroizolacji a więc folii przepuszczającej parę wodną od poszycia na zewnątrz, natomiast blokującej przepuszczanie wody w postaci płynu z paroizolacją, która ma celu powstrzymywanie przedostawania się pary wodnej z wnętrza domu do ściany.
+</p1></li>
+	<li><p1>
+	Podczas ocieplania budynku należy wykonywać czynności modernizacyjne zgodnie ze sztuką. Przed rozpoczęciem prac należy właściwie przygotować podłoże przez jej odpylenie i oczyszczenie, aby możliwa była odpowiednia przyczepność kleju do podłoża. Klej powinien być nanoszony na płyty styropianowe równomiernie. Złą praktyką jest przyklejanie płyt styropianu na tzw. placki. Kołki i kotwy powinny być zagłębione w warstwie nośnej na co najmniej 5 cm. Trwalsze mocowanie wymagane jest w narożnikach budynku ze względu na większą wrażliwość na podmuchy wiatru. Stosowanie listwy startowej dostosowanej do planowanej grubości ocieplenia umożliwia właściwe wypoziomowanie pierwszego rzędu ocieplenia. 
+</p1></li>
+	<li><p1>
+	W przypadku dużych budynków przemysłowych lub biurowych, coraz częstszą praktyką jest zapis w umowie o wypłaceniu całości środków dopiero po akceptacji wykonanej modernizacji przed niezależną firmę zewnętrzną, która dokonuje kontroli wykonanej modernizacji kamerą termowizyjną. 
+</p1></li>
+		
+ </ul> 
+</div>	
+
+
+<div class="karta">
+<h2 id="C2"> Pompa ciepła </h2>
+
+<ul>
+	<li><p1>
+		W przypadku pompy ciepła z wymiennikiem poziomym należy instalować sondy poziome poniżej strefy przemarzania gruntu. Dla województwa pomorskiego po zachodniej stronie jest to około 0,8m zaś po wschodniej około 1 metr. Nie należy też umieszczać zbyt głęboko dolnego źródła ciepła.
+	</p1></li>
+	
+	<li><p1>
+	W przypadku pomp ciepła, lepiej nie umieszczać tego typu rozwiązania, gdy dom jest energochłonny. Pompa ciepła najlepiej pracuje dla dobrze zaizolowanych budynków oraz gdy są ciepłe zimy.
+	</p1></li>
+	
+	<li><p1>
+	Lepsze w przypadku instalacji z pompą ciepła jest przewymiarowanie instalacji dolnego źródła ciepłą niż niedowymiarowanie, choć oczywiście ważny jest zdrowy rozsądek i obliczenia inżynierskie. 
+	</p1></li>
+	
+	<li><p1>
+	Pompa ciepła będzie lepiej pracować jeżeli podłoże jest bagniste i podmokłe niż w przypadku suchej piaszczystej ziemi. Korzystą sytuacją jest gdy pod terenem znajduje się żyła wodna. Najkorzystniejszą sytuacją jest występowanie terenu z podwyższoną aktywnością wulkaniczną jak w przypadku Islandii. 
+	</p1></li>
+	
+	<li><p1>
+	Jeżeli w pobliżu znajduje się zwarta skała o dużej przewodności cieplej (a najlepiej jakiś wulkan niedaleko) wówczas warto zainteresować się instalacją pompy ciepła z wymiennikiem pionowym. Należy mieć na uwadze, że w przypadku odwiertów pionowych należy liczyć się ze sporymi kosztami. 
+	</p1></li>
+</ul>
+</div>
+
+<div class="karta">	
+	<h2 id="C3"> Instalacja fotowoltaiczna PV</h2>
+<ul>	
+	<li><p1>
+	Na etapie projektowania należy brać pod uwagę zacienienie instalacji oraz zachowanie prawidłowych odstępów między modułami aby nie nastąpiło zacienienie jednego panela PV przez drugi. 
+	</p1></li>
+	
+	<li><p1>
+	Dobór odpowiedniego inwertera jest bardzo istotny dla prawidłowej pracy instalacji. Istotny jest też okres gwarancji inwertera, gdyż często same panele PV potrafią pracować ponad 30 lat. 
+	</p1></li>
+	
+	<li><p1>
+	Przed realizacją inwestycji warto sprawdzić czy jest możliwe połączenie z siecią energetyczną. Jest też możliwa praca off-grid w systemie wyspowym, lecz należy mieć na uwadze wysokie koszty akumulacji energii elektrycznej.
+	</p1></li>
+	
+	<li><p1>
+	Podczas instalacji PV należy uważać na sposób montażu paneli na dachach, gdyż przy nieprawidłowym montażu następuje uszkodzenie konstrukcji dachowej i dach przecieka. 
+	</p1></li>
+	
+</ul>
+</div>	
+
+
+<div class="karta">
+	<h2 id="C4"> Kolektor słoneczny</h2>
+<ul>	
+	<li><p1>
+	Podczas wyboru rodzaju kolektora słonecznego warto zwrócić uwagę na powierzchnię absorbera. Tańsze rozwiązania mogą nie posiadać specjalnej powłoki nie dopuszczającej do nadmiernego nagrzewania się instalacji
+	</p1></li>
+	
+	<li><p1>
+	Nie warto przewymiarowywać instalacji kolektora, gdyż wówczas w okresie letnim będziemy mieli zbyt gorący czynnik roboczy co może doprowadzić do uszkodzenia instalacji
+	</p1></li>
+	
+	<li><p1>
+	W przypadku instalacji dachowej, należy pamiętać o specjalnych uszczelnieniach aby nie nastapiła sytuacja cieknącego dachu
+	</p1></li>
+	
+</ul>
+</div>	
+
+
+
+</div>
+</div>
+
+
+</div>
+</section>
+
+
+</article>
+</main>
+
+
+
+<footer>
+<div id="footer">
+<p>Wszystkie prawa zastrzeżone. All rights reserved. &copy; 2021-<span id="data_rok"></span> Author: Wojciech Kłoszewski. Created with HTML5, CSS3, JS6 </p>
+
+<script>
+const d = new Date();
+document.getElementById("data_rok").innerHTML = d.getFullYear();
+</script>
+
+<!--do pompy ciepła-->
+<div class="flex-container2">
+
+<div id="pomocniczezuzycie1"></div>
+<div id="pomocniczaenergia1"></div>
+
+<div id="pomocniczaenergiawody1"></div>
+<div id="pomocniczaenergiacalkowita1"></div>
+
+<!--kolektor i fotowoltaika-->
+
+<div id="pomocniczezuzyciefotowoltaika"></div>
+
+<div id="pomocniczezuzyciekolektor"></div>
+
+</div>
+</div>
+</footer>
+
+
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+<script src="jquery.scrollTo.min.js"></script>
+
+<script src="jquery-3.4.1.min.js"></script>
+
+
+
+<script>
+if (  window.innerWidth>800) {
+	$(document).ready(function() {
+	var NavY = $('.nav').offset().top;
+	 
+	var stickyNav = function(){
+	var ScrollY = $(window).scrollTop();
+		  
+	if (ScrollY > NavY) { 
+		$('.nav').addClass('sticky');
+	} else {
+		$('.nav').removeClass('sticky'); 
+	}
+	};
+	 
+	stickyNav();
+	 
+	$(window).scroll(function() {
+		stickyNav();
+	});
+	});
+}
+</script>
+
+<script>
+
+window.onload = load; 
+
+<!-- I projekt -->
+document.getElementById("liczbosob").addEventListener("input", zuzenergia);
+document.getElementById("czyoszczednie").addEventListener("input", zuzenergia);
+document.getElementById("oblicz").addEventListener("click", wspkorekcyjny);
+document.getElementById("oblicz").addEventListener("click", wykres);
+document.getElementById("cenaenergiielektrycznej").addEventListener("input", wspkorekcyjny);
+<!-- II projekt -->
+document.getElementById("zuzwodyselect11").addEventListener("click", zuzwody);
+document.getElementById("zuzwodyselect11").addEventListener("touchend", zuzwodyzatwierdz);
+document.getElementById("oblicz1").addEventListener("click", wspkorekcyjny1);
+document.getElementById("oblicz1").addEventListener("click", wykreskolektor);
+
+document.getElementById("kolektorrodzajdotychczaszrodlo11").addEventListener("click", kolektorkosztenergii);
+document.getElementById("kolektorrodzajdotychczaszrodlo11").addEventListener("touchend", kolektorkosztenergiizatwierdz);
+document.getElementById("kolektorkosztogrzewaniadotyczaszrodlo11").addEventListener("input", kolektorkosztenergiijednostka);
+
+<!-- III projekt -->
+document.getElementById("rodzajbudynkupompaselect11").addEventListener("click", zuzenergii);
+document.getElementById("rodzajbudynkupompaselect11").addEventListener("touchend", zuzenergiizatwierdz);
+
+document.getElementById("rodzajdotychczaszrodlo11").addEventListener("click", kosztenergii);
+document.getElementById("rodzajdotychczaszrodlo11").addEventListener("touchend", kosztenergiizatwierdz);
+
+document.getElementById("zuzwodyselect12").addEventListener("click", zuzwody2);
+document.getElementById("zuzwodyselect12").addEventListener("touchend", zuzwodyzatwierdz2);
+
+document.getElementById("kosztogrzewaniadotyczaszrodlo11").addEventListener("input", kosztenergiijednostka);
+
+document.getElementById("oblicz2").addEventListener("click", dobor2);
+document.getElementById("oblicz2").addEventListener("click", wykrespompa);
+
+document.getElementById("wynikzmienkosztogrzewania11").addEventListener("input", dobor3);
+
+
+document.getElementById("rodzajpompyciepla11").addEventListener("click", pompacieplagruntowarodzajewysun);
+document.getElementById("rodzajwymiennikapompyciepla11").addEventListener("click", pompacieplagruntowarodzajewysun);
+
+
+
+
+<!--sticky nav -->
+
+
+
+
+</script>
+
+
+
+</html>
